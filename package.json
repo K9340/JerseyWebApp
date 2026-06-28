@@ -1,0 +1,10 @@
+{
+  "name": "jersey-customizer-root",
+  "version": "1.0.0",
+  "description": "Root workspace workspace delegate for FuturaSport customizer",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix frontend && cp -r frontend/dist ./dist",
+    "postinstall": "npm install --prefix frontend"
+  }
+}

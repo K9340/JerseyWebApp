@@ -7,6 +7,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "build:web": "expo export",
+    "build": "npm run build:web",
     "local-test:web": "npx serve dist"
   },
   "dependencies": {
