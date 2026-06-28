@@ -4,15 +4,10 @@ import { Platform } from 'react-native';
 // Set backend target URL based on Platform environment
 // In React Native development, localhost/127.0.0.1 points to the mobile device loopback,
 // so for Android simulators we route to 10.0.2.2.
-let BASE_URL = 'http://localhost:5000/api';
+let BASE_URL = process.env.EXPO_PUBLIC_API_URL || 'http://localhost:5000/api';
 
-if (Platform.OS === 'android') {
+if (Platform.OS === 'android' && !process.env.EXPO_PUBLIC_API_URL) {
   BASE_URL = 'http://10.0.2.2:5000/api';
-}
-
-// Fallback to Render production URL when built/hosted
-if (process.env.NODE_ENV === 'production') {
-  BASE_URL = 'https://jersey-customizer-backend-8ipc.onrender.com/api';
 }
 
 const api = axios.create({

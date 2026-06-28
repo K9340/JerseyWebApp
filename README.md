@@ -121,7 +121,7 @@ To deploy the web frontend on [Vercel](https://vercel.com/):
     *   **Root Directory:** `frontend`
     *   **Build Command:** `npm run build:web`
     *   **Output Directory:** `dist`
-    *   **Environment Variables:** Create a key `NODE_ENV` with value `production`. Vercel will automatically route endpoints to the Render production URL as configured in [api.js](file:///h:/JERSEY%20PRO/TSHIRTPRO/jersey-customizer-app/frontend/services/api.js).
+    *   **Environment Variables:** Add `EXPO_PUBLIC_API_URL` (pointing to your Render backend API, e.g. `https://your-service.onrender.com/api`) and `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` (with your Google Web Client ID).
 5.  Click **Deploy**.
 
 ---
