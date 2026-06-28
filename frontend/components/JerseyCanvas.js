@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { StyleSheet, View, Platform } from 'react-native';
-import { WebView } from 'react-native-webview';
 import { drawJerseySide } from './canvasEngine';
+
+let WebView;
+if (Platform.OS !== 'web') {
+  WebView = require('react-native-webview').WebView;
+}
 
 export default function JerseyCanvas({ side, state, playerIndex = 0, isGuidesEnabled = true, onPositionChange }) {
   const canvasRef = useRef(null);
