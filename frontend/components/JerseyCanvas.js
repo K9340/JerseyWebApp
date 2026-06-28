@@ -1,33 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import { StyleSheet, View, Platform } from 'react-native';
-import { drawJerseySide } from './canvasEngine';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { WebView } from 'react-native-webview';
 
-let WebView;
-if (Platform.OS !== 'web') {
-  WebView = require('react-native-webview').WebView;
-}
-
-export default function JerseyCanvas({ side, state, playerIndex = 0, isGuidesEnabled = true, onPositionChange }) {
-  const canvasRef = useRef(null);
-
-  // Web Rendering Path
-  useEffect(() => {
-    if (Platform.OS !== 'web' || !canvasRef.current) return;
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    
-    // Draw using standard Canvas Engine
-    drawJerseySide(ctx, canvas, side, state, playerIndex, isGuidesEnabled);
-  }, [side, state, playerIndex, isGuidesEnabled]);
-
-  if (Platform.OS === 'web') {
-    return (
-      <View style={styles.webContainer}>
-        <canvas ref={canvasRef} style={styles.webCanvas} />
-      </View>
-    );
-  }
-
+export default function JerseyCanvas({ side, state, playerIndex = 0, isGuidesEnabled = true }) {
   // Native iOS/Android Path: Compile an inline HTML containing the drawing engine + webview bridge
   const stateJsonStr = JSON.stringify(state);
   const webViewHtml = `
@@ -65,8 +40,6 @@ export default function JerseyCanvas({ side, state, playerIndex = 0, isGuidesEna
           let viewSide = "${side}";
           let pIdx = ${playerIndex};
           let guides = ${isGuidesEnabled ? 'true' : 'false'};
-
-          const imageCache = {};
 
           function render() {
             const dpi = appState.dpi || 100;
@@ -149,7 +122,6 @@ export default function JerseyCanvas({ side, state, playerIndex = 0, isGuidesEna
             }
           }
 
-          // Listen for posts from parent React Native component
           window.addEventListener('message', (event) => {
             const data = JSON.parse(event.data);
             if (data.state) appState = data.state;
@@ -179,19 +151,6 @@ export default function JerseyCanvas({ side, state, playerIndex = 0, isGuidesEna
 }
 
 const styles = StyleSheet.create({
-  webContainer: {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#090d16',
-    borderRadius: 16,
-    padding: 16,
-  },
-  webCanvas: {
-    maxWidth: '100%',
-    height: 'auto',
-    borderRadius: 8,
-  },
   nativeContainer: {
     width: '100%',
     aspectRatio: 0.8,
