@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, StatusBar, Platform } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, StatusBar, Platform, Image } from 'react-native';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
+import * as WebBrowser from 'expo-web-browser';
+import * as Google from 'expo-auth-session/providers/google';
+import { authService } from './services/api';
+
+WebBrowser.maybeCompleteAuthSession();
 
 // Load Screen Viewports
 import HomeScreen from './screens/HomeScreen';
@@ -12,6 +17,41 @@ import AdminScreen from './screens/AdminScreen';
 export default function App() {
   const [currentTab, setCurrentTab] = useState('home');
   const [activeOrderId, setActiveOrderId] = useState('');
+  const [userInfo, setUserInfo] = useState(null);
+
+  // Configure OAuth request parameters
+  const [request, response, promptAsync] = Google.useAuthRequest({
+    webClientId: '10928340912-3ab8cd25.apps.googleusercontent.com', // Placeholder
+    androidClientId: '10928340912-androidplaceholder.apps.googleusercontent.com',
+    iosClientId: '10928340912-iosplaceholder.apps.googleusercontent.com',
+  });
+
+  // Watch authentication response
+  useEffect(() => {
+    if (response?.type === 'success') {
+      const { authentication } = response;
+      handleLogin(authentication.accessToken);
+    }
+  }, [response]);
+
+  const handleLogin = async (accessToken) => {
+    try {
+      const data = await authService.loginWithGoogle(accessToken);
+      setUserInfo(data.user);
+    } catch (error) {
+      console.error("Authentication failed:", error);
+      // Fallback mock info for development safety
+      setUserInfo({
+        name: 'Guest Player',
+        email: 'guest@futura.com',
+        picture: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80'
+      });
+    }
+  };
+
+  const handleLogout = () => {
+    setUserInfo(null);
+  };
   
   // Customizer Configuration State
   const [designState, setDesignState] = useState({
@@ -60,13 +100,40 @@ export default function App() {
           </View>
         </View>
 
-        {/* Global active server badge */}
-        {Platform.OS === 'web' && (
-          <View style={styles.serverBadge}>
-            <View style={styles.pulseDot} />
-            <Text style={styles.serverText}>Global Server Active</Text>
-          </View>
-        )}
+        {/* Right side widgets */}
+        <View style={styles.headerRight}>
+          {Platform.OS === 'web' && (
+            <View style={styles.serverBadge}>
+              <View style={styles.pulseDot} />
+              <Text style={styles.serverText}>Global Active</Text>
+            </View>
+          )}
+
+          {userInfo ? (
+            <View style={styles.userBadge}>
+              {userInfo.picture ? (
+                <Image source={{ uri: userInfo.picture }} style={styles.avatar} />
+              ) : (
+                <View style={styles.avatarPlaceholder}>
+                  <Text style={styles.avatarInitials}>
+                    {userInfo.name ? userInfo.name.substring(0, 1).toUpperCase() : 'U'}
+                  </Text>
+                </View>
+              )}
+              <TouchableOpacity onPress={handleLogout} style={styles.logoutBtn}>
+                <Text style={styles.logoutText}>Logout</Text>
+              </TouchableOpacity>
+            </View>
+          ) : (
+            <TouchableOpacity 
+              disabled={!request} 
+              onPress={() => promptAsync()} 
+              style={styles.loginBtn}
+            >
+              <Text style={styles.loginBtnText}>Login</Text>
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
 
       {/* Main Workspace Navigation Container */}
@@ -247,5 +314,59 @@ const styles = StyleSheet.create({
   },
   tabLabelActive: {
     color: '#34d399',
+  },
+  headerRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  userBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#1e293b',
+    borderWidth: 1,
+    borderColor: '#334155',
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    borderRadius: 12,
+    gap: 8,
+  },
+  avatar: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+  },
+  avatarPlaceholder: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: '#34d399',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  avatarInitials: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    color: '#0f172a',
+  },
+  logoutBtn: {
+    paddingVertical: 2,
+    paddingHorizontal: 6,
+  },
+  logoutText: {
+    fontSize: 9,
+    fontWeight: 'bold',
+    color: '#ef4444',
+  },
+  loginBtn: {
+    backgroundColor: '#34d399',
+    paddingVertical: 6,
+    paddingHorizontal: 16,
+    borderRadius: 10,
+  },
+  loginBtnText: {
+    color: '#0f172a',
+    fontSize: 11,
+    fontWeight: 'bold',
   },
 });

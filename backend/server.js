@@ -94,6 +94,7 @@ async function startServer() {
     app.use('/api/orders', require('./routes/orders')(db));
     app.use('/api/admin', require('./routes/admin')(db));
     app.use('/admin/db', require('./routes/admin')(db));
+    app.use('/api/auth', require('./routes/auth')(db));
 
     // Handle 404 Routing
     app.use((req, res) => {

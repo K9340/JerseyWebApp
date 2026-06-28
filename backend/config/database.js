@@ -65,6 +65,17 @@ async function initializeDatabase() {
       )
     `);
 
+    // Table 4: Users
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS users (
+        id VARCHAR(100) PRIMARY KEY,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        picture VARCHAR(500),
+        createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+
     console.log('PostgreSQL Database tables verified/created successfully.');
   } catch (error) {
     console.error('Error during PostgreSQL tables bootstrap:', error);

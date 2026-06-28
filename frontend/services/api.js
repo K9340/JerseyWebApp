@@ -90,4 +90,11 @@ export const uploadService = {
   },
 };
 
+export const authService = {
+  loginWithGoogle: async (token) => {
+    const response = await api.post('/auth/google', { token });
+    return response.data;
+  }
+};
+
 export default api;
