@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, StatusBar, Platform, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, StatusBar, Platform, Image, Alert } from 'react-native';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import * as WebBrowser from 'expo-web-browser';
 import * as Google from 'expo-auth-session/providers/google';
@@ -26,7 +26,34 @@ export default function App() {
     iosClientId: process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,
   });
 
-  // Watch authentication response
+  // Load session from local storage on mount (Web)
+  useEffect(() => {
+    if (Platform.OS === 'web') {
+      const savedUser = localStorage.getItem('futura_user_session');
+      if (savedUser) {
+        try {
+          setUserInfo(JSON.parse(savedUser));
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    }
+  }, []);
+
+  // Parse callback token from URL hash on Web startup
+  useEffect(() => {
+    if (Platform.OS === 'web' && window.location.hash) {
+      const params = new URLSearchParams(window.location.hash.substring(1));
+      const accessToken = params.get('access_token');
+      if (accessToken) {
+        handleLogin(accessToken);
+        // Clean hash from URL so it doesn't re-trigger on reload
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }
+  }, []);
+
+  // Watch authentication response hook
   useEffect(() => {
     if (response?.type === 'success') {
       const { authentication } = response;
@@ -38,19 +65,46 @@ export default function App() {
     try {
       const data = await authService.loginWithGoogle(accessToken);
       setUserInfo(data.user);
+      if (Platform.OS === 'web') {
+        localStorage.setItem('futura_user_session', JSON.stringify(data.user));
+      }
     } catch (error) {
       console.error("Authentication failed:", error);
-      // Fallback mock info for development safety
-      setUserInfo({
+      const mockUser = {
         name: 'Guest Player',
         email: 'guest@futura.com',
         picture: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80'
-      });
+      };
+      setUserInfo(mockUser);
+      if (Platform.OS === 'web') {
+        localStorage.setItem('futura_user_session', JSON.stringify(mockUser));
+      }
     }
   };
 
   const handleLogout = () => {
-    setUserInfo(null);
+    const executeLogout = () => {
+      setUserInfo(null);
+      if (Platform.OS === 'web') {
+        localStorage.removeItem('futura_user_session');
+      }
+    };
+
+    if (Platform.OS === 'web') {
+      const confirmLogout = window.confirm("Are you sure you want to log out?");
+      if (confirmLogout) {
+        executeLogout();
+      }
+    } else {
+      Alert.alert(
+        "Confirm Logout",
+        "Are you sure you want to log out?",
+        [
+          { text: "Cancel", style: "cancel" },
+          { text: "Logout", style: "destructive", onPress: executeLogout }
+        ]
+      );
+    }
   };
   
   // Customizer Configuration State
