@@ -53,6 +53,7 @@ const upload = multer({
 
 // Serve uploads folder static assets
 app.use('/uploads', express.static(uploadsDir));
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 async function startServer() {
   try {

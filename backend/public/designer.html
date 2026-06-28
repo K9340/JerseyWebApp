@@ -1,0 +1,3002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jersey Dual Batch Designer Pro - Royal Light Sublimation Engine</title>
+    <!-- Tailwind CSS for high-fidelity premium Light Theme styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for professional athletic icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- JSZip to pack resized files into structured production folders inside ZIP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- PDF.js CDN for reading/rendering uploaded PDF templates -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <!-- jsPDF for generating vector-aligned accurate physical size PDFs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Google Fonts: Inter & Teko for bold athletic typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800;900&family=Teko:wght=500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9; /* Ultra clean light studio grey */
+            color: #1e293b; /* Premium slate text for maximum readability */
+        }
+        /* Custom scrollbars designed around Royal Blue theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        /* Elevated design cards with subtle Royal Blue shadow accents */
+        .premium-card {
+            background-color: #ffffff;
+            border: 1px solid #dbeafe; /* Light blue accent borders */
+            box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.05), 0 2px 4px -1px rgba(30, 64, 175, 0.03);
+            transition: all 0.25s ease;
+        }
+        .premium-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.1), 0 4px 6px -4px rgba(30, 64, 175, 0.05);
+            border-color: #bfdbfe;
+        }
+        .canvas-container {
+            position: relative;
+            background: #ffffff;
+            border: 2px solid #3b82f6; /* Bold Royal Blue edge */
+            box-shadow: 0 10px 25px -5px rgba(30, 64, 175, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .canvas-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(30, 64, 175, 0.25);
+        }
+        .glow-gold {
+            box-shadow: 0 0 15px rgba(234, 179, 8, 0.35);
+        }
+        .text-neon-blue {
+            color: #1d4ed8;
+            text-shadow: 0 1px 2px rgba(30, 64, 175, 0.15);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- NOTIFICATION SYSTEM BANNER -->
+    <div id="customNotification" class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ease-out translate-y-[-150%] max-w-md w-full px-4">
+        <div class="bg-white border-2 border-blue-600 rounded-2xl p-4 shadow-2xl flex items-center gap-3">
+            <div id="notifIconBox" class="bg-blue-50 text-blue-600 p-2.5 rounded-xl">
+                <i class="fa-solid fa-bell text-lg"></i>
+            </div>
+            <div>
+                <h4 id="notifTitle" class="text-xs font-bold text-blue-900 uppercase tracking-wider">System Alert</h4>
+                <p id="notifMessage" class="text-xs text-slate-600 mt-0.5">Notification messages will appear here.</p>
+            </div>
+            <button onclick="hideNotification()" class="ml-auto text-slate-400 hover:text-slate-900 transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- HEADER: Dynamic Royal Blue Header with Gold Accents -->
+    <header class="border-b border-blue-100 bg-white shadow-sm sticky top-0 z-40 px-6 py-3">
+        <div class="max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-2.5 rounded-xl text-yellow-400 shadow-md">
+                    <i class="fa-solid fa-shirt text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-extrabold tracking-tight text-blue-900 flex items-center gap-2">
+                        JERSEY DUAL DESIGNER <span class="bg-yellow-100 text-yellow-700 text-[10px] px-2.5 py-0.5 rounded-full font-black border border-yellow-300">PRO GOLD v12.0</span>
+                    </h1>
+                    <p class="text-[10px] text-slate-500 font-bold tracking-wide uppercase font-mono">Sublimation Grading Engine | Front, Back & Sleeves Production Canvas (23.5" x 10" / 28")</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <button onclick="resetToDefaults()" class="px-3.5 py-2 text-xs font-bold text-blue-900 hover:bg-slate-100 border border-blue-200 hover:border-blue-300 rounded-xl transition-all">
+                    <i class="fa-solid fa-arrow-rotate-left mr-1.5 text-yellow-500"></i> Reset Template
+                </button>
+                <div class="text-[11px] font-bold text-blue-900 bg-blue-50 px-3.5 py-2 rounded-xl border border-blue-100 flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Local Vector Engine Active ✨
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN WORKSPACE -->
+    <main class="max-w-[1600px] mx-auto w-full p-4 md:p-6 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- LEFT PANEL: CUSTOMIZATION & DESIGN CONTROLS (3 COLS) -->
+        <section class="lg:col-span-3 space-y-6 flex flex-col font-mono">
+            
+            <!-- STEP 1: Assets Upload Panel -->
+            <div class="premium-card p-5 rounded-2xl space-y-4 font-sans">
+                <h2 class="text-xs font-black text-blue-900 uppercase tracking-widest flex items-center gap-2 font-mono">
+                    <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-[10px] font-bold">1</span>
+                    Project Assets (प्रोजेक्ट फ़ाइलें)
+                </h2>
+
+                <!-- 1-Click ZIP Upload / Automation Slot -->
+                <div class="relative group border-2 border-dashed border-blue-200 hover:border-blue-500 rounded-2xl p-4 transition-all bg-blue-50/20 text-center cursor-pointer">
+                    <input type="file" id="automationZipUpload" accept=".zip" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleProjectZipUpload(event)">
+                    <div class="space-y-1">
+                        <i class="fa-solid fa-file-zipper text-2xl text-blue-600"></i>
+                        <p class="text-xs text-blue-900 font-bold">Upload Project ZIP Backup</p>
+                        <p class="text-[9px] text-slate-500 font-semibold font-mono">Loads background PDFs, assets, & roster configuration</p>
+                    </div>
+                </div>
+
+                <!-- Download Sample ZIP Button -->
+                <button onclick="downloadSampleAutomationZip()" class="w-full bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 font-bold py-2 px-3 rounded-xl transition-all text-[11px] flex items-center justify-center gap-2 font-mono">
+                    <i class="fa-solid fa-download text-yellow-500"></i>
+                    Download Sample ZIP Template
+                </button>
+
+                <div class="border-t border-slate-100 pt-3">
+                    <p class="text-[9px] text-slate-500 font-bold uppercase mb-2">मैन्युअल बैकग्राउंड लोड करें (PDF / PNG):</p>
+                </div>
+
+                <!-- Template Background Upload Grid -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[9px] uppercase font-black text-blue-900 mb-1">Front Palla</label>
+                        <div class="relative group border border-dashed border-slate-300 hover:border-blue-400 rounded-xl p-2.5 transition-all bg-slate-50 text-center cursor-pointer">
+                            <input type="file" id="frontJerseyUpload" accept="image/*,.pdf" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handlePallaUpload(event, 'front')">
+                            <i class="fa-solid fa-image text-xs text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                            <p class="text-[8px] text-slate-600 font-bold truncate mt-1" id="frontFileName">Front Background</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[9px] uppercase font-black text-blue-900 mb-1">Back Palla</label>
+                        <div class="relative group border border-dashed border-slate-300 hover:border-blue-400 rounded-xl p-2.5 transition-all bg-slate-50 text-center cursor-pointer">
+                            <input type="file" id="backJerseyUpload" accept="image/*,.pdf" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handlePallaUpload(event, 'back')">
+                            <i class="fa-solid fa-image text-xs text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                            <p class="text-[8px] text-slate-600 font-bold truncate mt-1" id="backFileName">Back Background</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Sleeves Templates Upload Grid -->
+                <div class="grid grid-cols-2 gap-3 border-t border-slate-100 pt-3">
+                    <div>
+                        <label class="block text-[9px] uppercase font-black text-blue-900 mb-1">Half Sleeve Template</label>
+                        <div class="relative group border border-dashed border-slate-300 hover:border-blue-400 rounded-xl p-2.5 transition-all bg-slate-50 text-center cursor-pointer">
+                            <input type="file" id="halfSleeveUpload" accept="image/*,.pdf" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleSleeveTemplateUpload(event, 'half')">
+                            <i class="fa-solid fa-scissors text-xs text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                            <p class="text-[8px] text-slate-600 font-bold truncate mt-1" id="halfSleeveFileName">Half Sleeve</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[9px] uppercase font-black text-blue-900 mb-1">Full Sleeve Template</label>
+                        <div class="relative group border border-dashed border-slate-300 hover:border-blue-400 rounded-xl p-2.5 transition-all bg-slate-50 text-center cursor-pointer">
+                            <input type="file" id="fullSleeveUpload" accept="image/*,.pdf" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleSleeveTemplateUpload(event, 'full')">
+                            <i class="fa-solid fa-scissors text-xs text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                            <p class="text-[8px] text-slate-600 font-bold truncate mt-1" id="fullSleeveFileName">Full Sleeve</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Front Logos Upload Grid (Left + Right Chest) -->
+                <div class="grid grid-cols-2 gap-3 border-t border-slate-100 pt-3">
+                    <div>
+                        <label class="block text-[9px] uppercase font-black text-blue-900 mb-1">Front Left Logo</label>
+                        <div class="relative group border border-dashed border-slate-300 hover:border-blue-400 rounded-xl p-2.5 transition-all bg-slate-50 text-center cursor-pointer">
+                            <input type="file" id="logoUpload" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleLogoUpload(event)">
+                            <i class="fa-solid fa-shield-halved text-xs text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                            <p class="text-[8px] text-slate-600 font-bold truncate mt-1" id="logoFileName">Left PNG Logo</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[9px] uppercase font-black text-blue-900 mb-1">Front Right Logo</label>
+                        <div class="relative group border border-dashed border-slate-300 hover:border-blue-400 rounded-xl p-2.5 transition-all bg-slate-50 text-center cursor-pointer">
+                            <input type="file" id="rightLogoUpload" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleRightLogoUpload(event)">
+                            <i class="fa-solid fa-shield-halved text-xs text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                            <p class="text-[8px] text-slate-600 font-bold truncate mt-1" id="rightLogoFileName">Right PNG Logo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Independent Left & Right Sleeve Logos Upload Grid -->
+                <div class="grid grid-cols-2 gap-3 border-t border-slate-100 pt-3">
+                    <div>
+                        <label class="block text-[9px] uppercase font-black text-blue-900 mb-1">Left Sleeve Logo</label>
+                        <div class="relative group border border-dashed border-slate-300 hover:border-blue-400 rounded-xl p-2.5 transition-all bg-slate-50 text-center cursor-pointer">
+                            <input type="file" id="leftSleeveLogoUpload" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleLeftSleeveLogoUpload(event)">
+                            <i class="fa-solid fa-circle-nodes text-xs text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                            <p class="text-[8px] text-slate-600 font-bold truncate mt-1" id="leftSleeveLogoFileName">Left Sleeve PNG</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[9px] uppercase font-black text-blue-900 mb-1">Right Sleeve Logo</label>
+                        <div class="relative group border border-dashed border-slate-300 hover:border-blue-400 rounded-xl p-2.5 transition-all bg-slate-50 text-center cursor-pointer">
+                            <input type="file" id="rightSleeveLogoUpload" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleRightSleeveLogoUpload(event)">
+                            <i class="fa-solid fa-circle-nodes text-xs text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                            <p class="text-[8px] text-slate-600 font-bold truncate mt-1" id="rightSleeveLogoFileName">Right Sleeve PNG</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary Back Big Logos & Front Sponsor Upload Row -->
+                <div class="grid grid-cols-2 gap-3 border-t border-slate-100 pt-3">
+                    <div>
+                        <label class="block text-[9px] uppercase font-black text-blue-900 mb-1">Back Sponsor Logo</label>
+                        <div class="relative group border border-dashed border-slate-300 hover:border-blue-400 rounded-xl p-2.5 transition-all bg-slate-50 text-center cursor-pointer">
+                            <input type="file" id="backLogoUpload" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleBackLogoUpload(event)">
+                            <i class="fa-solid fa-image text-xs text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                            <p class="text-[8px] text-slate-600 font-bold truncate mt-1" id="backLogoFileName">Back Big Logo</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[9px] uppercase font-black text-blue-900 mb-1">Front Sponsor Banner</label>
+                        <div class="relative group border border-dashed border-slate-300 hover:border-blue-400 rounded-xl p-2.5 transition-all bg-slate-50 text-center cursor-pointer">
+                            <input type="file" id="frontSponsorLogoUpload" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleFrontSponsorLogoUpload(event)">
+                            <i class="fa-solid fa-image text-xs text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                            <p class="text-[8px] text-slate-600 font-bold truncate mt-1" id="frontSponsorLogoFileName">Sponsor Big PNG</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Typography Font -->
+                <div>
+                    <label class="block text-[9px] uppercase font-black text-blue-900 mb-1">Global Custom Font (.ttf/.otf)</label>
+                    <div class="relative group border border-dashed border-slate-300 hover:border-blue-400 rounded-xl p-2.5 transition-all bg-slate-50 text-center cursor-pointer">
+                        <input type="file" id="fontUpload" accept=".ttf,.otf" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleFontUpload(event)">
+                        <i class="fa-solid fa-font text-xs text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                        <p class="text-[8px] text-slate-600 font-bold truncate mt-1" id="fontFileName">Default Teko (Athletic Font)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 2: Customization Controls Panel -->
+            <div class="premium-card p-5 rounded-2xl space-y-4 font-sans">
+                
+                <!-- MASTER SLEEVES PRINT TOGGLE -->
+                <div class="flex items-center justify-between bg-blue-50/50 p-3.5 rounded-xl border border-blue-200 mb-1 shadow-sm">
+                    <label class="text-xs text-blue-900 font-extrabold flex items-center gap-2">
+                        <i class="fa-solid fa-scissors text-yellow-500 animate-pulse"></i> Sleeves Printing (आस्तीन प्रिंट रखें)
+                    </label>
+                    <input type="checkbox" id="sleevesEnabledToggle" onchange="toggleSleevesPrinting(this.checked)" class="w-4.5 h-4.5 text-blue-600 bg-white border-blue-300 rounded-lg focus:ring-blue-500 cursor-pointer" checked>
+                </div>
+
+                <!-- Main Master Side Selector Tabs (FRONT vs BACK vs SLEEVES) -->
+                <div class="flex bg-slate-100 p-1.5 rounded-xl border border-slate-200">
+                    <button onclick="switchMasterSide('front')" id="sideFrontBtn" class="flex-1 py-1.5 text-[9px] font-black rounded-lg bg-blue-600 text-white focus:outline-none transition-all">
+                        FRONT
+                    </button>
+                    <button onclick="switchMasterSide('back')" id="sideBackBtn" class="flex-1 py-1.5 text-[9px] font-black rounded-lg text-slate-600 hover:text-blue-900 focus:outline-none transition-all">
+                        BACK
+                    </button>
+                    <button onclick="switchMasterSide('leftSleeve')" id="sideLeftSleeveBtn" class="flex-1 py-1.5 text-[9px] font-black rounded-lg text-slate-600 hover:text-blue-900 focus:outline-none transition-all">
+                        L-SLEEVE
+                    </button>
+                    <button onclick="switchMasterSide('rightSleeve')" id="sideRightSleeveBtn" class="flex-1 py-1.5 text-[9px] font-black rounded-lg text-slate-600 hover:text-blue-900 focus:outline-none transition-all">
+                        R-SLEEVE
+                    </button>
+                </div>
+
+                <!-- Element Tabs Inside Front, Back or Sleeve -->
+                <div class="flex bg-slate-50 p-1 rounded-lg border border-slate-200" id="subTabsBox">
+                    <!-- Dynamic Subtabs loaded here by JS -->
+                </div>
+
+                <!-- SLEEVE AUTO-MIRROR LINKING CONTROL -->
+                <div id="sleeveMirrorControlBox" class="bg-blue-50/30 p-3.5 rounded-xl border border-blue-200 space-y-2.5 hidden">
+                    <div class="flex items-center justify-between">
+                        <label class="text-xs text-blue-900 font-bold flex items-center gap-2 font-mono">
+                            <i class="fa-solid fa-arrows-left-right text-yellow-500"></i> Auto-Mirror Left to Right
+                        </label>
+                        <input type="checkbox" id="autoMirrorSleeves" onchange="toggleAutoMirror(this.checked)" class="w-4 h-4 text-blue-600 bg-white border-blue-300 rounded focus:ring-blue-500" checked>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-blue-100 pt-2" id="mirrorLogoOptionBox">
+                        <label class="text-[10px] text-slate-600 font-bold flex items-center gap-1.5">
+                            <i class="fa-solid fa-arrows-spin text-blue-600"></i> Mirror Logo Graphics too
+                        </label>
+                        <input type="checkbox" id="mirrorSleeveLogoImage" onchange="toggleMirrorLogoImage(this.checked)" class="w-3.5 h-3.5 text-blue-600 bg-white border-blue-300 rounded focus:ring-blue-500">
+                    </div>
+                    <p class="text-[9px] text-slate-500 leading-relaxed font-sans">
+                        सक्रिय होने पर, लेफ्ट आस्तीन (Left Sleeve) के सभी डिजाइन राइट आस्तीन पर ऑटो-मिरर हो जाएंगे।
+                    </p>
+                </div>
+
+                <!-- STYLING CONFIG CONTROLS -->
+                <div class="space-y-4 pt-1">
+                    
+                    <!-- Toggle visibility checkbox -->
+                    <div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-xl border border-slate-200 shadow-sm">
+                        <label class="text-xs text-slate-700 font-bold flex items-center gap-2">
+                            <i id="visibilityIcon" class="fa-solid fa-eye text-blue-600"></i> Element Visible (दिखाएं)
+                        </label>
+                        <input type="checkbox" id="elementVisible" onchange="toggleVisibility(this.checked)" class="w-4 h-4 text-blue-600 bg-white border-slate-300 rounded focus:ring-blue-500" checked>
+                    </div>
+
+                    <!-- Colors Picker with Premium Swatches -->
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-3 shadow-sm" id="colorPickerBox">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[10px] uppercase font-black text-slate-500 mb-1">Fill Color</label>
+                                <div class="flex items-center gap-2 bg-white p-2 rounded-lg border border-slate-200">
+                                    <input type="color" id="fgColor" value="#facc15" oninput="updateConfigValue('fgColor', this.value)" class="w-6 h-6 bg-transparent border-0 cursor-pointer rounded">
+                                    <span class="text-[10px] font-mono font-bold text-slate-700" id="fgColorText">#FACC15</span>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] uppercase font-black text-slate-500 mb-1">Outline Color</label>
+                                <div class="flex items-center gap-2 bg-white p-2 rounded-lg border border-slate-200">
+                                    <input type="color" id="outlineColor" value="#000000" oninput="updateConfigValue('outlineColor', this.value)" class="w-6 h-6 bg-transparent border-0 cursor-pointer rounded">
+                                    <span class="text-[10px] font-mono font-bold text-slate-700" id="outlineColorText">#000000</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Swatches Panel -->
+                        <div class="border-t border-slate-200 pt-2.5">
+                            <label class="block text-[9px] uppercase font-bold text-slate-500 mb-1.5 font-mono">Sports Theme Palettes</label>
+                            <div class="flex flex-wrap gap-1.5">
+                                <button onclick="applyColorSwatch('#1e40af', '#facc15')" class="w-5 h-5 rounded-full border border-blue-700 bg-blue-800 hover:scale-110 transition-transform shadow-sm" title="Royal & Yellow"></button>
+                                <button onclick="applyColorSwatch('#facc15', '#1e40af')" class="w-5 h-5 rounded-full border border-yellow-500 bg-yellow-400 hover:scale-110 transition-transform shadow-sm" title="Yellow & Royal"></button>
+                                <button onclick="applyColorSwatch('#ef4444', '#ffffff')" class="w-5 h-5 rounded-full border border-red-500 bg-red-500 hover:scale-110 transition-transform shadow-sm" title="Red & White"></button>
+                                <button onclick="applyColorSwatch('#10b981', '#000000')" class="w-5 h-5 rounded-full border border-emerald-500 bg-emerald-500 hover:scale-110 transition-transform shadow-sm" title="Neon Green & Black"></button>
+                                <button onclick="applyColorSwatch('#ffffff', '#1e40af')" class="w-5 h-5 rounded-full border border-slate-300 bg-white hover:scale-110 transition-transform shadow-sm" title="White & Blue"></button>
+                                <button onclick="applyColorSwatch('#000000', '#facc15')" class="w-5 h-5 rounded-full border border-slate-800 bg-black hover:scale-110 transition-transform shadow-sm" title="Black & Yellow"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FRONT CHEST LAYOUT PRESETS BOX -->
+                    <div id="chestLayoutPresetBox" class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3 hidden shadow-sm">
+                        <div class="flex justify-between items-center">
+                            <label class="block text-[10px] uppercase font-black text-blue-900 font-mono tracking-wider flex items-center gap-1">
+                                <i class="fa-solid fa-gears text-blue-600"></i> Chest Alignment Setup
+                            </label>
+                        </div>
+                        
+                        <div class="grid grid-cols-3 gap-1">
+                            <button id="toggleFrontLogoBtn" onclick="toggleFrontComponent('logo')" class="py-1.5 px-1 text-[9px] font-bold rounded bg-blue-600 text-white border border-blue-500 transition-all flex items-center justify-center gap-0.5 shadow-sm">
+                                <i class="fa-solid fa-shield-halved"></i> L-Logo: ON
+                            </button>
+                            <button id="toggleFrontLogoRightBtn" onclick="toggleFrontComponent('logoRight')" class="py-1.5 px-1 text-[9px] font-bold rounded bg-white text-slate-600 border border-slate-300 transition-all flex items-center justify-center gap-0.5">
+                                <i class="fa-solid fa-shield-halved"></i> R-Logo: OFF
+                            </button>
+                            <button id="toggleFrontNumBtn" onclick="toggleFrontComponent('chestNumber')" class="py-1.5 px-1 text-[9px] font-bold rounded bg-blue-600 text-white border border-blue-500 transition-all flex items-center justify-center gap-0.5 shadow-sm">
+                                <i class="fa-solid fa-hashtag"></i> Num: ON
+                            </button>
+                        </div>
+
+                        <!-- Presets select -->
+                        <div class="space-y-1.5 border-t border-slate-200 pt-2.5">
+                            <label class="block text-[9px] uppercase font-bold text-slate-500 font-mono">Alignment Presets</label>
+                            <div class="grid grid-cols-2 gap-1.5 text-[9px]">
+                                <button onclick="applyChestPreset('logo_dual')" class="col-span-2 bg-gradient-to-r from-blue-700 to-blue-800 border border-blue-600 text-white py-1.5 px-1 rounded-xl transition-all font-semibold text-center shadow-sm">
+                                    🛡️ Dual Logo (Left + Right Chest)
+                                </button>
+                                <button onclick="applyChestPreset('dual')" class="bg-white border border-blue-200 text-blue-900 py-1.5 px-1 rounded-xl transition-all font-semibold text-center shadow-sm">
+                                    👥 Left Logo + Right Num
+                                </button>
+                                <button onclick="applyChestPreset('logo_center')" class="bg-white border border-slate-300 text-slate-700 py-1.5 px-1 rounded-xl transition-all font-semibold text-center shadow-sm">
+                                    🎯 Center Logo Only
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Custom Text Input field -->
+                    <div id="textInputBox" class="hidden">
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="block text-[10px] uppercase font-black text-slate-500" id="textInputLabel">Text Matter</label>
+                        </div>
+                        <input type="text" id="textInputField" value="" oninput="updateConfigValue('text', this.value)" class="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-xs text-slate-900 font-bold focus:outline-none focus:border-blue-500 font-mono shadow-sm">
+                    </div>
+
+                    <!-- Independent Font Selector for Elements -->
+                    <div id="fontSelectionBox" class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2.5 hidden shadow-sm">
+                        <label class="block text-[10px] uppercase font-black text-blue-900 font-mono tracking-wider">Configure Typography Style</label>
+                        <select id="elementFontSelect" onchange="updateElementFont(this.value)" class="w-full bg-white border border-slate-300 text-xs text-slate-900 px-3 py-2 rounded-lg focus:outline-none focus:border-blue-500 font-bold font-mono shadow-sm">
+                            <option value="Teko">Teko (Athletic Condensed)</option>
+                            <option value="Inter">Inter (Premium Clean)</option>
+                            <option value="Impact">Impact (Classic Bold Block)</option>
+                            <option value="Arial Black">Arial Black (Heavy Gothic)</option>
+                        </select>
+                        
+                        <!-- Font Weight Slider -->
+                        <div class="mt-2 pt-2 border-t border-slate-200">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-[10px] uppercase font-black text-slate-500">Font Weight / Boldness (बोल्डनेस)</label>
+                                <span class="text-xs font-bold text-blue-700 font-mono" id="fontWeightValue">100</span>
+                            </div>
+                            <input type="range" id="fontWeightSlider" min="100" max="900" step="100" value="100" oninput="updateConfigValue('fontWeight', this.value)" class="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                        </div>
+                    </div>
+
+                    <!-- Master Width Control -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="text-[10px] uppercase font-black text-slate-500">Master Target Width (इंच)</label>
+                            <span class="text-xs font-bold text-blue-700 font-mono" id="targetWidthValue">10.0 Inch</span>
+                        </div>
+                        <input type="range" id="targetWidth" min="1.0" max="25.0" step="0.1" value="10.0" oninput="updateConfigValue('targetWidth', this.value)" class="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                    </div>
+
+                    <!-- Master Max Height Control -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="text-[10px] uppercase font-black text-slate-500">Master Max Height (इंच)</label>
+                            <span class="text-xs font-bold text-blue-700 font-mono" id="maxHeightValue">3.5 Inch</span>
+                        </div>
+                        <input type="range" id="maxHeight" min="1.0" max="25.0" step="0.1" value="3.5" oninput="updateConfigValue('maxHeight', this.value)" class="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                    </div>
+
+                    <!-- X Position Control with Quick Snapping -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="text-[10px] uppercase font-black text-slate-500">Master X Position (इंच)</label>
+                            <span class="text-xs font-bold text-blue-700 font-mono" id="xPosValue">10.5 Inch</span>
+                        </div>
+                        <input type="range" id="xPos" min="0.5" max="23.5" step="0.1" value="10.5" oninput="updateConfigValue('xPos', this.value)" class="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                        <div class="flex gap-1.5 mt-1.5" id="snapXBox">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Y Position Control with Quick Snapping -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="text-[10px] uppercase font-black text-slate-500">Master Y Position (इंच)</label>
+                            <span class="text-xs font-bold text-blue-700 font-mono" id="yPosValue">8.5 Inch</span>
+                        </div>
+                        <input type="range" id="yPos" min="0.5" max="28.0" step="0.1" value="8.5" oninput="updateConfigValue('yPos', this.value)" class="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                        <div class="flex gap-1.5 mt-1.5" id="snapYBox">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Dynamic specific text features -->
+                    <div id="additionalTextSettings" class="space-y-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-[10px] uppercase font-black text-slate-500">Outline Thickness (इंच)</label>
+                                <span class="text-xs font-bold text-blue-700 font-mono" id="outlineThicknessValue">0.12 Inch</span>
+                            </div>
+                            <input type="range" id="outlineThickness" min="0.0" max="0.5" step="0.01" value="0.12" oninput="updateConfigValue('outlineThickness', this.value)" class="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-[10px] uppercase font-black text-slate-500">Letter Spacing (इंच)</label>
+                                <span class="text-xs font-bold text-blue-700 font-mono" id="letterSpacingValue">0.15 Inch</span>
+                            </div>
+                            <input type="range" id="letterSpacing" min="0.0" max="1.0" step="0.01" value="0.15" oninput="updateConfigValue('letterSpacing', this.value)" class="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                        </div>
+
+                        <!-- Curved Text Options -->
+                        <div id="curveControlBox" class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 space-y-2 shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <label class="text-xs text-slate-700 font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-nodes text-blue-600"></i> Arc / Curved Text (घुमावदार)
+                                </label>
+                                <input type="checkbox" id="curvedEnabled" onchange="toggleCurved(this.checked)" class="w-4 h-4 text-blue-600 bg-white border-slate-300 rounded focus:ring-blue-500">
+                            </div>
+                            <div id="arcIntensityBox" class="hidden space-y-1">
+                                <div class="flex justify-between text-[9px] font-black text-slate-500">
+                                    <span>Bend Curvature</span>
+                                    <span id="arcValue" class="text-blue-700 font-mono">25</span>
+                                </div>
+                                <input type="range" id="arcIntensity" min="5" max="80" value="25" oninput="updateConfigValue('arc', this.value)" class="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 2.5: Comment/Manufacturing Tag Panel -->
+            <div class="premium-card p-5 rounded-2xl space-y-4 font-sans">
+                <h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2 font-mono">
+                    <i class="fa-solid fa-tag text-blue-600"></i>
+                    Manufacturing Comment (लेबल)
+                </h2>
+                <div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                    <label class="text-xs text-slate-700 font-bold flex items-center gap-2 font-mono">
+                        <i id="commentVisibilityIcon" class="fa-solid fa-eye text-blue-600"></i> Enable Tag (टैग चालू करें)
+                    </label>
+                    <input type="checkbox" id="commentVisible" onchange="updateCommentConfig('visible', this.checked)" class="w-4 h-4 text-blue-600 bg-white border-slate-300 rounded focus:ring-blue-500" checked>
+                </div>
+                <div>
+                    <label class="block text-[10px] uppercase font-black text-slate-500 mb-1 font-mono">Comment Label Text</label>
+                    <input type="text" id="commentTextInput" value="BATCH-S" oninput="updateCommentConfig('text', this.value)" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs text-slate-900 font-bold focus:outline-none focus:border-blue-500 font-mono shadow-sm">
+                </div>
+            </div>
+        </section>
+
+        <!-- CENTER PANEL: LIVE DYNAMIC VIEWPORT (6 COLS) -->
+        <section class="lg:col-span-6 flex flex-col items-center justify-between space-y-4">
+            <div class="w-full bg-white border border-blue-100 p-5 rounded-2xl shadow-sm flex-grow flex flex-col items-center justify-center relative overflow-hidden">
+                
+                <!-- TOP CANVAS CONFIGURATORS -->
+                <div class="w-full flex flex-col sm:flex-row justify-between items-center gap-3 mb-4">
+                    <div class="w-full sm:w-auto font-mono">
+                        <label class="block text-[9px] uppercase font-black text-slate-500 mb-1">Preview Grade Size</label>
+                        <select id="previewSizeSelect" onchange="changePreviewSize(this.value)" class="w-full bg-slate-50 border border-slate-200 text-xs text-slate-900 px-3 py-1.5 rounded-lg focus:outline-none focus:border-blue-500 font-black">
+                            <option value="M" selected>M - Baseline Layout</option>
+                            <option value="7XS">7XS - Kid Size</option>
+                            <option value="4XS">4XS - Youth Size</option>
+                            <option value="S">S - Small Size</option>
+                            <option value="L">L - Large Size</option>
+                            <option value="XXL">XXL - Double Extra Large</option>
+                            <option value="5XL">5XL - Maximum Grade</option>
+                        </select>
+                    </div>
+
+                    <div class="w-full sm:w-auto font-mono">
+                        <label class="block text-[9px] uppercase font-black text-slate-500 mb-1">Output Quality (DPI)</label>
+                        <select id="dpiSelect" onchange="changeDPI(this.value)" class="w-full bg-slate-50 border border-slate-200 text-xs text-slate-900 px-3 py-1.5 rounded-lg focus:outline-none focus:border-blue-500 font-black">
+                            <option value="50">50 DPI (Fast Rendering)</option>
+                            <option value="100" selected>100 DPI (Sublimation Master)</option>
+                            <option value="150">150 DPI (High Quality Output)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- SAFETY MARGINS TOGGLE & GUIDES -->
+                <div class="w-full mb-3 flex flex-col sm:flex-row justify-between items-center gap-2 bg-slate-50 p-3 rounded-xl border border-slate-200 text-[10px]">
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" id="showGuides" onchange="drawCanvas()" class="w-4 h-4 text-blue-600 bg-white border-slate-300 rounded focus:ring-blue-500" checked>
+                        <label for="showGuides" class="text-slate-700 font-bold cursor-pointer font-sans">
+                            <i class="fa-solid fa-border-none text-blue-600 mr-1"></i> Show Safety Margins & Grid Guides (गाइडलाइन्स दिखाएं)
+                        </label>
+                    </div>
+                    <div class="text-[9px] text-slate-400 font-bold uppercase font-mono">
+                        Overlay guides active for layout precision
+                    </div>
+                </div>
+
+                <!-- Responsive Graded Kit Layout (2x2 Viewports Alignment) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full h-full relative">
+                    <!-- Loading overlay -->
+                    <div id="canvasLoader" class="absolute inset-0 bg-white/95 flex flex-col items-center justify-center z-30 rounded-xl hidden">
+                        <div class="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                        <p class="text-[11px] text-slate-700 mt-3 font-semibold font-mono" id="loaderText">Loading canvases...</p>
+                    </div>
+
+                    <!-- FRONT VIEWPORT -->
+                    <div class="flex flex-col items-center space-y-1 bg-slate-50 p-2 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="text-[9px] font-black tracking-widest text-blue-700 flex items-center gap-1 font-mono">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-ping"></span> FRONT PREVIEW
+                        </div>
+                        <div class="canvas-container w-full flex justify-center items-center">
+                            <canvas id="frontCanvas" class="max-w-full h-auto rounded-md cursor-ns-resize border border-slate-200" width="2100" height="3000"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- BACK VIEWPORT -->
+                    <div class="flex flex-col items-center space-y-1 bg-slate-50 p-2 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="text-[9px] font-black tracking-widest text-slate-800 flex items-center gap-1 font-mono">
+                            <span class="w-1.5 h-1.5 rounded-full bg-slate-800 animate-ping"></span> BACK PREVIEW
+                        </div>
+                        <div class="canvas-container w-full flex justify-center items-center">
+                            <canvas id="backCanvas" class="max-w-full h-auto rounded-md cursor-pointer border border-slate-200" width="2100" height="3000"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- LEFT SLEEVE VIEWPORT -->
+                    <div class="flex flex-col items-center space-y-1 bg-slate-50 p-2 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="text-[9px] font-black tracking-widest text-emerald-600 flex items-center gap-1 font-mono">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> LEFT SLEEVE (<span id="leftSleevePreviewType">HALF</span>)
+                        </div>
+                        <div class="canvas-container w-full flex justify-center items-center">
+                            <canvas id="leftSleeveCanvas" class="max-w-full h-auto rounded-md cursor-ns-resize border border-slate-200" width="2350" height="1000"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT SLEEVE VIEWPORT -->
+                    <div class="flex flex-col items-center space-y-1 bg-slate-50 p-2 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="text-[9px] font-black tracking-widest text-yellow-600 flex items-center gap-1 font-mono">
+                            <span class="w-1.5 h-1.5 rounded-full bg-yellow-500 animate-ping"></span> RIGHT SLEEVE (<span id="rightSleevePreviewType">HALF</span>) <span class="text-[8px] bg-blue-100 text-blue-800 px-1 py-0.5 rounded font-black border border-blue-200" id="mirrorBadge">MIRRORED</span>
+                        </div>
+                        <div class="canvas-container w-full flex justify-center items-center">
+                            <canvas id="rightSleeveCanvas" class="max-w-full h-auto rounded-md cursor-ns-resize border border-slate-200" width="2350" height="1000"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canvas Dynamic Dimensions Dashboard -->
+                <div class="w-full mt-4 bg-slate-50 p-3 rounded-xl border border-slate-200 grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-[10px] font-mono shadow-sm">
+                    <div class="p-1 border-r border-slate-200">
+                        <span class="block text-[8px] font-black text-slate-400 uppercase">Torso size</span>
+                        <span id="pallaInchesText" class="font-extrabold text-slate-800">21" × 30"</span>
+                    </div>
+                    <div class="p-1 sm:border-r border-slate-200">
+                        <span class="block text-[8px] font-black text-slate-400 uppercase">Sleeve dimensions</span>
+                        <span id="sleeveInchesText" class="font-extrabold text-blue-700">23.5" × 10.0" (HALF)</span>
+                    </div>
+                    <div class="p-1 border-r border-slate-200">
+                        <span class="block text-[8px] font-black text-slate-400 uppercase">DPI Resolution</span>
+                        <span id="canvasResText" class="font-extrabold text-slate-800">2350 × 1000 Px</span>
+                    </div>
+                    <div class="p-1">
+                        <span class="block text-[8px] font-black text-slate-400 uppercase">Active Element</span>
+                        <span id="activeElementStatusText" class="font-extrabold text-yellow-600">Front Left Logo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT PANEL: PLAYERS DATA & EXPORT ENGINE (3 COLS) -->
+        <section class="lg:col-span-3 space-y-6 flex flex-col font-mono">
+            
+            <!-- STEP 3: Player List Panel -->
+            <div class="premium-card p-5 rounded-2xl flex-grow flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-xs font-black text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                            <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-[10px] font-bold">2</span>
+                            Player List (प्लेयर डेटा)
+                        </h2>
+                        <span id="playerCount" class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-black border border-blue-200">3 Players</span>
+                    </div>
+
+                    <!-- Manual Input / CSV upload switcher -->
+                    <div class="space-y-3">
+                        <!-- CSV File Upload -->
+                        <div class="relative group border border-slate-200 hover:border-slate-300 rounded-xl p-3 bg-slate-50 cursor-pointer shadow-sm">
+                            <input type="file" id="csvUpload" accept=".csv,.txt" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleCSVUpload(event)">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-emerald-100 p-2.5 rounded-lg text-emerald-700 font-sans">
+                                    <i class="fa-solid fa-file-excel text-lg"></i>
+                                </div>
+                                <div class="text-left font-sans">
+                                    <p class="text-xs text-slate-800 font-bold">Upload CSV / Pattern File</p>
+                                    <p class="text-[9px] text-slate-500 font-mono">FORMAT: NAME, NUMBER, SIZE, SLEEVE</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Manual List paste area -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-[10px] uppercase font-black text-slate-500">Human Readable Player List</label>
+                                <button onclick="insertSampleData()" class="text-[10px] text-blue-700 font-extrabold hover:underline">Load Samples</button>
+                            </div>
+                            <textarea id="playerListInput" rows="6" oninput="parsePlayersFromListText()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs text-slate-800 focus:outline-none focus:border-blue-500 font-bold font-mono leading-relaxed shadow-sm" placeholder="Format: NAME, NUMBER, SIZE, SLEEVE&#10;ROHIT, 45, M, HALF&#10;VIRAT, 18, L, FULL&#10;MSD, 7, XL, HALF"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Live Grid Preview with Individual eye button previewers -->
+                    <div class="space-y-2">
+                        <label class="block text-[10px] uppercase font-black text-slate-500">Graded Uniform Kit Grid</label>
+                        <div class="bg-white border border-slate-200 rounded-xl max-h-[170px] overflow-y-auto shadow-sm">
+                            <table class="w-full text-left text-[11px] text-slate-700">
+                                <thead class="bg-slate-50 text-slate-600 html-scroll sticky top-0 border-b border-slate-200">
+                                    <tr>
+                                        <th class="p-2 font-bold">Name</th>
+                                        <th class="p-2 text-center font-bold">Num</th>
+                                        <th class="p-2 text-center font-bold">Size</th>
+                                        <th class="p-2 text-center font-bold">Sleeve</th>
+                                        <th class="p-2 text-right font-bold">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="playerTableBody">
+                                    <!-- Dynamic rows loaded dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 4: Export Engine trigger button and Progress Bar -->
+                <div class="pt-6 border-t border-slate-100 space-y-4">
+                    <!-- Progress Bar (hidden by default) -->
+                    <div id="progressContainer" class="hidden space-y-2 bg-slate-50 p-3 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="flex justify-between text-xs font-semibold text-slate-700">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-sync animate-spin text-blue-600"></i> Rendering Front, Back & Sleeves...</span>
+                            <span id="progressText" class="font-black text-blue-900">0%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                            <div id="progressBar" class="bg-blue-600 h-full w-[0%] transition-all duration-100 shadow-sm shadow-blue-500/30"></div>
+                        </div>
+                        <p class="text-[9px] text-blue-700 text-center font-bold" id="progressStatusText">Rendering uniform components...</p>
+                    </div>
+
+                    <!-- Export Project ZIP Button -->
+                    <button onclick="exportCurrentProjectZip()" class="w-full bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-700 hover:text-blue-900 font-bold py-2.5 px-4 rounded-xl transition-all text-xs flex items-center justify-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-file-export text-sm"></i>
+                        ⚡ EXPORT CURRENT PROJECT ZIP
+                    </button>
+
+                    <!-- Bulk Download trigger action -->
+                    <button onclick="generateBatchJerseys()" id="generateBtn" class="w-full bg-gradient-to-r from-blue-700 via-blue-600 to-yellow-500 hover:opacity-95 text-white font-extrabold py-3.5 px-4 rounded-xl shadow-md active:scale-[0.98] transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-wider">
+                        <i class="fa-solid fa-file-pdf text-base"></i>
+                        GENERATE GRADED BATCH (.ZIP)
+                    </button>
+                    <p class="text-[9px] text-slate-500 text-center font-semibold leading-relaxed font-sans">
+                        इंजन फ्रंट, बैक और आस्तीन (Sleeve) पीडीएफ को पूर्ण आनुपातिक ग्रेडिंग के साथ ऑल-इन-वन उत्पादन ZIP में रेंडर करेगा।
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- JAVASCRIPT LOGIC ENGINE -->
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+        // Physical Size Database Chart (Width x Height in Inches)
+        const SIZE_DB = {
+            "7XS": { w: 13, h: 18.5 },
+            "6XS": { w: 14, h: 20 },
+            "5XS": { w: 15, h: 21.4 },
+            "4XS": { w: 16, h: 22.8 },
+            "3XS": { w: 17, h: 24.2 },
+            "XXS": { w: 18, h: 25.6 },
+            "XS": { w: 19, h: 27 },
+            "S": { w: 20, h: 28.5 },
+            "M": { w: 21, h: 30 }, // Torso Baseline Size
+            "L": { w: 22, h: 31.3 },
+            "XL": { w: 23, h: 32 },
+            "XXL": { w: 24, h: 32 },
+            "3XL": { w: 25, h: 32 },
+            "4XL": { w: 26, h: 32 },
+            "5XL": { w: 27, h: 32 }
+        };
+
+        const MASTER_REF_WIDTH = 21.0;
+        const MASTER_REF_HEIGHT = 30.0;
+
+        // Custom Sleeve Baseline Dimensions (Width x Height in Inches for M Size)
+        const SLEEVE_REF_WIDTH = 23.5;
+        const SLEEVE_HALF_REF_HEIGHT = 10.0;
+        const SLEEVE_FULL_REF_HEIGHT = 28.0;
+
+        // Vector outlines stylized in Royal Blue & Yellow
+        const PREMIUM_FRONT_SVG = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1140" width="800" height="1140">
+            <defs>
+                <linearGradient id="jerseyGradF" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#1e3a8a" />
+                    <stop offset="50%" stop-color="#2563eb" />
+                    <stop offset="100%" stop-color="#1e40af" />
+                </linearGradient>
+                <linearGradient id="glowLinesF" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#facc15" stop-opacity="0.3" />
+                    <stop offset="100%" stop-color="#eab308" stop-opacity="0.0" />
+                </linearGradient>
+            </defs>
+            <rect width="800" height="1140" fill="url(#jerseyGradF)"/>
+            <polygon points="0,0 380,0 220,1140 0,1140" fill="url(#glowLinesF)"/>
+            <polygon points="420,0 800,0 800,1140 580,1140" fill="url(#glowLinesF)" />
+            <path d="M 0,150 L 150,50 L 280,110 Q 400,230 520,110 L 650,50 L 800,150 L 730,420 Q 700,430 710,1140 L 90,1140 Q 100,430 70,420 Z" fill="none" stroke="#facc15" stroke-width="3" stroke-dasharray="6,4" />
+            <path d="M 280,110 Q 400,230 520,110" fill="none" stroke="#facc15" stroke-width="6"/>
+            <text x="400" y="570" fill="#facc15" font-size="28" font-family="sans-serif" font-weight="900" text-anchor="middle" opacity="0.3" letter-spacing="4">FRONT PALLA</text>
+        </svg>
+        `;
+
+        const PREMIUM_BACK_SVG = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1140" width="800" height="1140">
+            <defs>
+                <linearGradient id="jerseyGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#1e3a8a" />
+                    <stop offset="50%" stop-color="#1e40af" />
+                    <stop offset="100%" stop-color="#1d4ed8" />
+                </linearGradient>
+                <linearGradient id="glowLinesB" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#facc15" stop-opacity="0.3" />
+                    <stop offset="100%" stop-color="#eab308" stop-opacity="0.0" />
+                </linearGradient>
+            </defs>
+            <rect width="800" height="1140" fill="url(#jerseyGradB)"/>
+            <polygon points="0,0 350,0 200,1140 0,1140" fill="url(#glowLinesB)"/>
+            <polygon points="450,0 800,0 800,1140 600,1140" fill="url(#glowLinesB)" />
+            <path d="M 0,150 L 150,50 L 280,110 Q 400,160 520,110 L 650,50 L 800,150 L 730,420 Q 700,430 710,1140 L 90,1140 Q 100,430 70,420 Z" fill="none" stroke="#facc15" stroke-width="3" stroke-dasharray="6,4" />
+            <path d="M 280,110 Q 400,160 520,110" fill="none" stroke="#facc15" stroke-width="4"/>
+            <text x="400" y="570" fill="#facc15" font-size="28" font-family="sans-serif" font-weight="900" text-anchor="middle" opacity="0.3" letter-spacing="4">BACK PALLA</text>
+        </svg>
+        `;
+
+        const PREMIUM_HALF_SLEEVE_SVG = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 235 100" width="235" height="100">
+            <defs>
+                <linearGradient id="halfSleeveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#1e3a8a" />
+                    <stop offset="100%" stop-color="#1e40af" />
+                </linearGradient>
+            </defs>
+            <rect width="235" height="100" fill="url(#halfSleeveGrad)"/>
+            <path d="M 0,100 C 40,60 80,10 117.5,10 C 155,10 195,60 235,100 Z" fill="none" stroke="#facc15" stroke-width="1.5" stroke-dasharray="4,2"/>
+            <line x1="0" y1="95" x2="235" y2="95" stroke="#facc15" stroke-width="3" opacity="0.8" />
+            <text x="117.5" y="65" fill="#facc15" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle" opacity="0.25">HALF SLEEVE PANEL</text>
+        </svg>
+        `;
+
+        const PREMIUM_FULL_SLEEVE_SVG = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 235 280" width="235" height="280">
+            <defs>
+                <linearGradient id="fullSleeveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#1e3a8a" />
+                    <stop offset="100%" stop-color="#1d4ed8" />
+                </linearGradient>
+            </defs>
+            <rect width="235" height="280" fill="url(#fullSleeveGrad)"/>
+            <path d="M 30,280 L 0,100 C 40,50 80,10 117.5,10 C 155,10 195,50 235,100 L 205,280 Z" fill="none" stroke="#facc15" stroke-width="2" stroke-dasharray="6,3" />
+            <line x1="30" y1="275" x2="205" y2="275" stroke="#facc15" stroke-width="4" opacity="0.8" />
+            <text x="117.5" y="150" fill="#facc15" font-size="12" font-family="sans-serif" font-weight="bold" text-anchor="middle" opacity="0.25">FULL SLEEVE PANEL</text>
+        </svg>
+        `;
+
+        let state = {
+            masterSide: 'front', 
+            currentTab: 'logo', 
+            activeSleeveType: 'HALF', 
+            autoMirrorSleeves: true, 
+            mirrorSleeveLogoImage: false, 
+            sleevesEnabled: true, 
+
+            uploadedFrontJersey: null,
+            uploadedBackJersey: null,
+            uploadedHalfSleeve: null,
+            uploadedFullSleeve: null,
+
+            frontJerseyBlob: null,
+            frontJerseyExtension: 'svg',
+            backJerseyBlob: null,
+            backJerseyExtension: 'svg',
+            halfSleeveBlob: null,
+            halfSleeveExtension: 'svg',
+            fullSleeveBlob: null,
+            fullSleeveExtension: 'svg',
+
+            frontFileName: 'Default_Royal_Front.png',
+            backFileName: 'Default_Royal_Back.png',
+            halfSleeveFileName: 'Default_Half_Sleeve.png',
+            fullSleeveFileName: 'Default_Full_Sleeve.png',
+            
+            customFont: null,
+            fontFamily: 'Teko',
+            
+            uploadedLogoImage: null,
+            logoBlob: null,
+            logoExtension: 'png',
+            logoFileName: 'Default_Shield_Left.png',
+
+            uploadedRightLogoImage: null,
+            rightLogoBlob: null,
+            rightLogoExtension: 'png',
+            rightLogoFileName: 'Default_Shield_Right.png',
+
+            uploadedFrontSponsorLogoImage: null,
+            frontSponsorLogoBlob: null,
+            frontSponsorLogoExtension: 'png',
+            frontSponsorLogoFileName: 'Sponsor_Logo_Placeholder.png',
+
+            uploadedLeftSleeveLogoImage: null,
+            leftSleeveLogoBlob: null,
+            leftSleeveLogoExtension: 'png',
+            leftSleeveLogoFileName: 'Default_Left_Sleeve_Logo.png',
+
+            uploadedRightSleeveLogoImage: null,
+            rightSleeveLogoBlob: null,
+            rightSleeveLogoExtension: 'png',
+            rightSleeveLogoFileName: 'Default_Right_Sleeve_Logo.png',
+            
+            uploadedBackLogoImage: null,
+            backLogoBlob: null,
+            backLogoExtension: 'png',
+            backLogoFileName: 'Default_Back_Logo.png',
+            
+            dpi: 100,
+            previewSize: 'M',
+            activePlayerIndex: 0, // Individual tracking preview index
+            
+            front: {
+                logo: { targetWidthInches: 3.2, maxHeightInches: 3.2, xPosInches: 6.5, yPosInches: 8.5, visible: true },
+                logoRight: { targetWidthInches: 3.2, maxHeightInches: 3.2, xPosInches: 14.5, yPosInches: 8.5, visible: false },
+                chestNumber: { text: "45", targetWidthInches: 3.2, maxHeightInches: 3.2, xPosInches: 14.5, yPosInches: 7.5, fgColor: "#ffffff", outlineColor: "#000000", outlineThicknessInches: 0.10, letterSpacingInches: 0.05, fontFamily: "Teko", fontWeight: 100, visible: true },
+                sponsor: { text: "TEAM SPONSOR", targetWidthInches: 13.0, maxHeightInches: 3.5, xPosInches: 10.5, yPosInches: 15.0, fgColor: "#facc15", outlineColor: "#1e3a8a", outlineThicknessInches: 0.12, letterSpacingInches: 0.15, curvedEnabled: false, arc: 25, fontFamily: "Teko", fontWeight: 100, visible: true },
+                sponsorLogo: { targetWidthInches: 11.0, maxHeightInches: 4.5, xPosInches: 10.5, yPosInches: 19.5, visible: false }
+            },
+            back: {
+                name: { text: "ROHIT", targetWidthInches: 10.0, maxHeightInches: 3.5, xPosInches: 10.5, yPosInches: 6.0, fgColor: "#facc15", outlineColor: "#000000", outlineThicknessInches: 0.12, letterSpacingInches: 0.15, curvedEnabled: true, arc: 25, fontFamily: "Teko", fontWeight: 100, visible: true },
+                number: { text: "45", targetWidthInches: 9.0, maxHeightInches: 8.5, xPosInches: 10.5, yPosInches: 15.0, fgColor: "#ffffff", outlineColor: "#1e3a8a", outlineThicknessInches: 0.18, letterSpacingInches: 0.05, fontFamily: "Teko", fontWeight: 100, visible: true },
+                logo: { targetWidthInches: 6.0, maxHeightInches: 6.0, xPosInches: 10.5, yPosInches: 22.0, visible: false },
+                teamName: { text: "TEAM NAME", targetWidthInches: 12.0, maxHeightInches: 2.0, xPosInches: 10.5, yPosInches: 26.0, fgColor: "#facc15", outlineColor: "#1e3a8a", outlineThicknessInches: 0.10, letterSpacingInches: 0.12, curvedEnabled: false, arc: 25, fontFamily: "Teko", fontWeight: 100, visible: true }
+            },
+            leftSleeve: {
+                logo: { targetWidthInches: 3.0, maxHeightInches: 3.0, xPosInches: 11.75, yPosInches: 5.5, visible: true },
+                text: { text: "RUN FAST", targetWidthInches: 12.0, maxHeightInches: 2.5, xPosInches: 11.75, yPosInches: 7.0, fgColor: "#ffffff", outlineColor: "#1e3a8a", outlineThicknessInches: 0.10, letterSpacingInches: 0.10, curvedEnabled: false, arc: 25, fontFamily: "Teko", fontWeight: 100, visible: false }
+            },
+            rightSleeve: {
+                logo: { targetWidthInches: 3.0, maxHeightInches: 3.0, xPosInches: 11.75, yPosInches: 5.5, visible: true },
+                text: { text: "CHAMPIONS", targetWidthInches: 12.0, maxHeightInches: 2.5, xPosInches: 11.75, yPosInches: 7.0, fgColor: "#ffffff", outlineColor: "#1e3a8a", outlineThicknessInches: 0.10, letterSpacingInches: 0.10, curvedEnabled: false, arc: 25, fontFamily: "Teko", fontWeight: 100, visible: false }
+            },
+            comment: { text: "BATCH-S", visible: true, fontSizeInches: 0.2, yPosInches: 0.0, fgColor: "#ffffff", outlineColor: "#000000", outlineThicknessInches: 0.04 },
+            
+            players: [
+                { name: "ROHIT", number: "45", size: "M", sleeve: "HALF" },
+                { name: "VIRAT", number: "18", size: "L", sleeve: "FULL" },
+                { name: "MSD", number: "7", size: "XL", sleeve: "HALF" }
+            ],
+            
+            isDragging: false,
+            draggedSide: null, 
+            draggedElement: null, 
+            mouseXOffsetInches: 0,
+            mouseYOffsetInches: 0
+        };
+
+        // DOM Handles
+        const frontCanvas = document.getElementById('frontCanvas');
+        const fCtx = frontCanvas.getContext('2d');
+        const backCanvas = document.getElementById('backCanvas');
+        const bCtx = backCanvas.getContext('2d');
+        const leftSleeveCanvas = document.getElementById('leftSleeveCanvas');
+        const lsCtx = leftSleeveCanvas.getContext('2d');
+        const rightSleeveCanvas = document.getElementById('rightSleeveCanvas');
+        const rsCtx = rightSleeveCanvas.getContext('2d');
+
+        // Notification Helper
+        function showNotification(title, msg, type = 'info') {
+            const notif = document.getElementById('customNotification');
+            const iconBox = document.getElementById('notifIconBox');
+            const notifTitle = document.getElementById('notifTitle');
+            const notifMessage = document.getElementById('notifMessage');
+
+            if (!notif) return;
+
+            notifTitle.innerText = title;
+            notifMessage.innerHTML = msg;
+
+            if (type === 'error') {
+                iconBox.className = "bg-rose-50 text-rose-600 p-2.5 rounded-xl border border-rose-100";
+            } else if (type === 'success') {
+                iconBox.className = "bg-emerald-50 text-emerald-600 p-2.5 rounded-xl border border-emerald-100";
+            } else {
+                iconBox.className = "bg-blue-50 text-blue-600 p-2.5 rounded-xl border border-blue-100";
+            }
+
+            notif.classList.remove('translate-y-[-150%]');
+
+            if (window.notifTimeout) clearTimeout(window.notifTimeout);
+            window.notifTimeout = setTimeout(() => hideNotification(), 4000);
+        }
+
+        function hideNotification() {
+            const notif = document.getElementById('customNotification');
+            if (notif) notif.classList.add('translate-y-[-150%]');
+        }
+
+        // Color Swatch Applied
+        function applyColorSwatch(fg, bg) {
+            const currentObj = state[state.masterSide][state.currentTab];
+            if (!currentObj || currentObj.fgColor === undefined) return;
+            currentObj.fgColor = fg;
+            currentObj.outlineColor = bg;
+            syncControlsToState();
+            drawCanvas();
+            showNotification("Palette Applied", "Successfully updated template swatches!", "success");
+        }
+
+        // Snap coordinates helper
+        function snapCoordinate(key, val) {
+            const currentObj = state[state.masterSide][state.currentTab];
+            if (!currentObj) return;
+
+            if (key === 'xPos') {
+                currentObj.xPosInches = parseFloat(val);
+                document.getElementById('xPos').value = val;
+                document.getElementById('xPosValue').innerText = val.toFixed(1) + ' Inch';
+            } else if (key === 'yPos') {
+                currentObj.yPosInches = parseFloat(val);
+                document.getElementById('yPos').value = val;
+                document.getElementById('yPosValue').innerText = val.toFixed(1) + ' Inch';
+            }
+            drawCanvas();
+        }
+
+        // BASE64 Converter
+        function base64ToBlob(base64, mimeType) {
+            const byteCharacters = atob(base64);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            return new Blob([byteArray], { type: mimeType });
+        }
+
+        // Render Page image buffer helper
+        async function renderPdfBufferToImage(arrayBuffer) {
+            const typedArray = new Uint8Array(arrayBuffer);
+            const loadingTask = pdfjsLib.getDocument({ data: typedArray });
+            const pdf = await loadingTask.promise;
+            const page = await pdf.getPage(1);
+            
+            const viewport = page.getViewport({ scale: 2.5 });
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+
+            const renderContext = { canvasContext: context, viewport: viewport };
+            await page.render(renderContext).promise;
+
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.src = canvas.toDataURL('image/png');
+            });
+        }
+
+        // PDF renderer
+        async function renderPdfPageToImage(file) {
+            const arrayBuffer = await file.arrayBuffer();
+            return await renderPdfBufferToImage(arrayBuffer);
+        }
+
+        // STABLE DATA URIs LOADING PATTERN
+        function loadDefaultVectorTemplates() {
+            // Front palla
+            const svgBlobF = new Blob([PREMIUM_FRONT_SVG], {type: 'image/svg+xml;charset=utf-8'});
+            state.frontJerseyBlob = svgBlobF;
+            const urlF = URL.createObjectURL(svgBlobF);
+            const imgF = new Image();
+            imgF.onload = () => { state.uploadedFrontJersey = imgF; drawCanvas(); };
+            imgF.src = urlF;
+
+            // Back palla
+            const svgBlobB = new Blob([PREMIUM_BACK_SVG], {type: 'image/svg+xml;charset=utf-8'});
+            state.backJerseyBlob = svgBlobB;
+            const urlB = URL.createObjectURL(svgBlobB);
+            const imgB = new Image();
+            imgB.onload = () => { state.uploadedBackJersey = imgB; drawCanvas(); };
+            imgB.src = urlB;
+
+            // Half Sleeve
+            const svgBlobH = new Blob([PREMIUM_HALF_SLEEVE_SVG], {type: 'image/svg+xml;charset=utf-8'});
+            state.halfSleeveBlob = svgBlobH;
+            const urlH = URL.createObjectURL(svgBlobH);
+            const imgH = new Image();
+            imgH.onload = () => { state.uploadedHalfSleeve = imgH; drawCanvas(); };
+            imgH.src = urlH;
+
+            // Full Sleeve
+            const svgBlobFS = new Blob([PREMIUM_FULL_SLEEVE_SVG], {type: 'image/svg+xml;charset=utf-8'});
+            state.fullSleeveBlob = svgBlobFS;
+            const urlFS = URL.createObjectURL(svgBlobFS);
+            const imgFS = new Image();
+            imgFS.onload = () => { state.uploadedFullSleeve = imgFS; drawCanvas(); };
+            imgFS.src = urlFS;
+        }
+
+        function switchMasterSide(side) {
+            if ((side === 'leftSleeve' || side === 'rightSleeve') && !state.sleevesEnabled) {
+                showNotification(
+                    "Sleeves Print Disabled", 
+                    "Sleeves कस्टमाइजेशन करने के लिए कृपया 'Sleeves Printing' मास्टर स्विच को चालू करें।", 
+                    "error"
+                );
+                return;
+            }
+
+            state.masterSide = side;
+            
+            const frontBtn = document.getElementById('sideFrontBtn');
+            const backBtn = document.getElementById('sideBackBtn');
+            const leftBtn = document.getElementById('sideLeftSleeveBtn');
+            const rightBtn = document.getElementById('sideRightSleeveBtn');
+            const subTabsBox = document.getElementById('subTabsBox');
+            const mirrorBox = document.getElementById('sleeveMirrorControlBox');
+            
+            frontBtn.className = backBtn.className = leftBtn.className = rightBtn.className = "flex-1 py-1.5 text-[9px] font-black rounded-lg text-slate-600 hover:text-blue-900 focus:outline-none transition-all";
+            
+            if (side === 'front') {
+                frontBtn.className = "flex-1 py-1.5 text-[9px] font-black rounded-lg bg-blue-600 text-white focus:outline-none transition-all";
+                subTabsBox.innerHTML = `
+                    <button onclick="switchSubTab('logo')" id="tab_logo" class="flex-1 py-1 text-[9px] font-bold rounded-md bg-white text-blue-600 shadow-sm border border-blue-100">L-LOGO</button>
+                    <button onclick="switchSubTab('logoRight')" id="tab_logoRight" class="flex-1 py-1 text-[9px] font-bold rounded-md text-slate-600">R-LOGO</button>
+                    <button onclick="switchSubTab('chestNumber')" id="tab_chestNumber" class="flex-1 py-1 text-[9px] font-bold rounded-md text-slate-600">CHEST NUM</button>
+                    <button onclick="switchSubTab('sponsor')" id="tab_sponsor" class="flex-1 py-1 text-[9px] font-bold rounded-md text-slate-600">SPON TEXT</button>
+                    <button onclick="switchSubTab('sponsorLogo')" id="tab_sponsorLogo" class="flex-1 py-1 text-[9px] font-bold rounded-md text-slate-600">SPON LOGO</button>
+                `;
+                state.currentTab = 'logo';
+                mirrorBox.classList.add('hidden');
+            } else if (side === 'back') {
+                backBtn.className = "flex-1 py-1.5 text-[9px] font-black rounded-lg bg-blue-600 text-white focus:outline-none transition-all";
+                subTabsBox.innerHTML = `
+                    <button onclick="switchSubTab('name')" id="tab_name" class="flex-1 py-1 text-[9px] font-bold rounded-md bg-white text-blue-600 shadow-sm border border-blue-100">PLAYER NAME</button>
+                    <button onclick="switchSubTab('number')" id="tab_number" class="flex-1 py-1 text-[9px] font-bold rounded-md text-slate-600">PLAYER NUM</button>
+                    <button onclick="switchSubTab('logo')" id="tab_logo" class="flex-1 py-1 text-[9px] font-bold rounded-md text-slate-600">BACK LOGO</button>
+                    <button onclick="switchSubTab('teamName')" id="tab_teamName" class="flex-1 py-1 text-[9px] font-bold rounded-md text-slate-600">TEAM NAME</button>
+                `;
+                state.currentTab = 'name';
+                mirrorBox.classList.add('hidden');
+            } else if (side === 'leftSleeve' || side === 'rightSleeve') {
+                const targetBtn = side === 'leftSleeve' ? leftBtn : rightBtn;
+                targetBtn.className = "flex-1 py-1.5 text-[9px] font-black rounded-lg bg-blue-600 text-white focus:outline-none transition-all";
+                subTabsBox.innerHTML = `
+                    <button onclick="switchSubTab('logo')" id="tab_logo" class="flex-1 py-1 text-[9px] font-bold rounded-md bg-white text-blue-600 shadow-sm border border-blue-100">SLEEVE LOGO</button>
+                    <button onclick="switchSubTab('text')" id="tab_text" class="flex-1 py-1 text-[9px] font-bold rounded-md text-slate-600">SLEEVE TEXT</button>
+                `;
+                state.currentTab = 'logo';
+                mirrorBox.classList.remove('hidden');
+            }
+            
+            syncControlsToState();
+            drawCanvas();
+        }
+
+        // Master Sleeves Printing Toggle
+        function toggleSleevesPrinting(checked) {
+            state.sleevesEnabled = checked;
+            
+            if (!checked && (state.masterSide === 'leftSleeve' || state.masterSide === 'rightSleeve')) {
+                switchMasterSide('front');
+            }
+            
+            const lsContainer = leftSleeveCanvas.parentElement;
+            const rsContainer = rightSleeveCanvas.parentElement;
+            if (lsContainer && rsContainer) {
+                if (checked) {
+                    lsContainer.style.opacity = "1.0";
+                    rsContainer.style.opacity = "1.0";
+                } else {
+                    lsContainer.style.opacity = "0.45";
+                    rsContainer.style.opacity = "0.45";
+                }
+            }
+
+            drawCanvas();
+            showNotification(
+                "Sleeves Status Changed", 
+                checked ? "Sleeves printing is now ENABLED. Graphic sleeves will be rendered." : "Sleeves printing is now DISABLED. Sleeves will not be drawn on canvas or exported.", 
+                checked ? "success" : "error"
+            );
+        }
+
+        function switchSubTab(subTab) {
+            state.currentTab = subTab;
+            const buttons = document.getElementById('subTabsBox').getElementsByTagName('button');
+            for (let btn of buttons) {
+                if (btn.id === `tab_${subTab}`) {
+                    btn.className = "flex-1 py-1 text-[9px] font-bold rounded-md bg-white text-blue-600 shadow-sm border border-blue-100 focus:outline-none transition-all";
+                } else {
+                    btn.className = "flex-1 py-1 text-[9px] font-bold rounded-md text-slate-600 focus:outline-none transition-all";
+                }
+            }
+            syncControlsToState();
+            drawCanvas();
+        }
+
+        // Dynamic State synchronizer
+        function syncControlsToState() {
+            const currentObj = state[state.masterSide][state.currentTab];
+            if (!currentObj) return;
+
+            const isLogoTab = (state.masterSide === 'front' && (state.currentTab === 'logo' || state.currentTab === 'logoRight' || state.currentTab === 'sponsorLogo')) 
+                           || (state.masterSide === 'back' && state.currentTab === 'logo')
+                           || ((state.masterSide === 'leftSleeve' || state.masterSide === 'rightSleeve') && state.currentTab === 'logo');
+
+            if (isLogoTab) {
+                document.getElementById('colorPickerBox').classList.add('hidden');
+                document.getElementById('additionalTextSettings').classList.add('hidden');
+                document.getElementById('fontSelectionBox').classList.add('hidden');
+            } else {
+                document.getElementById('colorPickerBox').classList.remove('hidden');
+                document.getElementById('additionalTextSettings').classList.remove('hidden');
+                document.getElementById('fontSelectionBox').classList.remove('hidden');
+
+                document.getElementById('fgColor').value = currentObj.fgColor;
+                document.getElementById('fgColorText').innerText = currentObj.fgColor.toUpperCase();
+                document.getElementById('outlineColor').value = currentObj.outlineColor;
+                document.getElementById('outlineColorText').innerText = currentObj.outlineColor.toUpperCase();
+
+                document.getElementById('outlineThickness').value = currentObj.outlineThicknessInches;
+                document.getElementById('outlineThicknessValue').innerText = currentObj.outlineThicknessInches.toFixed(2) + ' Inch';
+                document.getElementById('letterSpacing').value = currentObj.letterSpacingInches;
+                document.getElementById('letterSpacingValue').innerText = currentObj.letterSpacingInches.toFixed(2) + ' Inch';
+
+                if (currentObj.fontFamily) {
+                    document.getElementById('elementFontSelect').value = currentObj.fontFamily;
+                }
+                
+                if (currentObj.fontWeight !== undefined) {
+                    document.getElementById('fontWeightSlider').value = currentObj.fontWeight;
+                    document.getElementById('fontWeightValue').innerText = currentObj.fontWeight;
+                }
+            }
+
+            const xSlider = document.getElementById('xPos');
+            const ySlider = document.getElementById('yPos');
+            if (state.masterSide === 'leftSleeve' || state.masterSide === 'rightSleeve') {
+                const currentMaxY = (state.activeSleeveType === 'HALF') ? SLEEVE_HALF_REF_HEIGHT : SLEEVE_FULL_REF_HEIGHT;
+                xSlider.max = SLEEVE_REF_WIDTH;
+                ySlider.max = currentMaxY;
+            } else {
+                xSlider.max = MASTER_REF_WIDTH;
+                ySlider.max = MASTER_REF_HEIGHT;
+            }
+
+            const snapXBox = document.getElementById('snapXBox');
+            const snapYBox = document.getElementById('snapYBox');
+            if (state.masterSide === 'leftSleeve' || state.masterSide === 'rightSleeve') {
+                const centerVal = (SLEEVE_REF_WIDTH / 2);
+                snapXBox.innerHTML = `
+                    <button onclick="snapCoordinate('xPos', ${centerVal})" class="flex-1 py-1 text-[8px] bg-white border border-slate-300 text-slate-700 hover:text-blue-600 rounded-lg shadow-sm">Center (${centerVal.toFixed(1)}")</button>
+                `;
+                snapYBox.innerHTML = `
+                    <button onclick="snapCoordinate('yPos', 3.0)" class="flex-1 py-1 text-[8px] bg-white border border-slate-300 text-slate-700 hover:text-blue-600 rounded-lg shadow-sm">Upper (3")</button>
+                    <button onclick="snapCoordinate('yPos', 5.5)" class="flex-1 py-1 text-[8px] bg-white border border-slate-300 text-slate-700 hover:text-blue-600 rounded-lg shadow-sm">Default (5.5")</button>
+                `;
+            } else {
+                snapXBox.innerHTML = `
+                    <button onclick="snapCoordinate('xPos', 10.5)" class="flex-1 py-1 text-[8px] bg-white border border-slate-300 text-slate-700 hover:text-blue-600 rounded-lg shadow-sm">Center (10.5")</button>
+                    <button onclick="snapCoordinate('xPos', 6.5)" class="flex-1 py-1 text-[8px] bg-white border border-slate-300 text-slate-700 hover:text-blue-600 rounded-lg shadow-sm">Left (6.5")</button>
+                    <button onclick="snapCoordinate('xPos', 14.5)" class="flex-1 py-1 text-[8px] bg-white border border-slate-300 text-slate-700 hover:text-blue-600 rounded-lg shadow-sm">Right (14.5")</button>
+                `;
+                snapYBox.innerHTML = `
+                    <button onclick="snapCoordinate('yPos', 6.0)" class="flex-1 py-1 text-[8px] bg-white border border-slate-300 text-slate-700 hover:text-blue-600 rounded-lg shadow-sm">Collar (6")</button>
+                    <button onclick="snapCoordinate('yPos', 8.5)" class="flex-1 py-1 text-[8px] bg-white border border-slate-300 text-slate-700 hover:text-blue-600 rounded-lg shadow-sm">Logo Chest (8.5")</button>
+                    <button onclick="snapCoordinate('yPos', 15.0)" class="flex-1 py-1 text-[8px] bg-white border border-slate-300 text-slate-700 hover:text-blue-600 rounded-lg shadow-sm">Mid (15")</button>
+                `;
+            }
+
+            document.getElementById('targetWidth').value = currentObj.targetWidthInches;
+            document.getElementById('targetWidthValue').innerText = currentObj.targetWidthInches.toFixed(1) + ' Inch';
+            document.getElementById('maxHeight').value = currentObj.maxHeightInches;
+            document.getElementById('maxHeightValue').innerText = currentObj.maxHeightInches.toFixed(1) + ' Inch';
+            document.getElementById('xPos').value = currentObj.xPosInches;
+            document.getElementById('xPosValue').innerText = currentObj.xPosInches.toFixed(1) + ' Inch';
+            document.getElementById('yPos').value = currentObj.yPosInches;
+            document.getElementById('yPosValue').innerText = currentObj.yPosInches.toFixed(1) + ' Inch';
+
+            const curveBox = document.getElementById('curveControlBox');
+            if (!isLogoTab && (state.currentTab === 'name' || state.currentTab === 'sponsor' || state.currentTab === 'teamName')) {
+                curveBox.classList.remove('hidden');
+                document.getElementById('curvedEnabled').checked = currentObj.curvedEnabled;
+                if (currentObj.curvedEnabled) {
+                    document.getElementById('arcIntensityBox').classList.remove('hidden');
+                    document.getElementById('arcIntensity').value = currentObj.arc;
+                    document.getElementById('arcValue').innerText = currentObj.arc;
+                } else {
+                    document.getElementById('arcIntensityBox').classList.add('hidden');
+                }
+            } else {
+                curveBox.classList.add('hidden');
+            }
+
+            const textInputBox = document.getElementById('textInputBox');
+            if (currentObj && currentObj.text !== undefined) {
+                textInputBox.classList.remove('hidden');
+                document.getElementById('textInputLabel').innerText = `Configure ${state.currentTab.toUpperCase()} Text`;
+                document.getElementById('textInputField').value = currentObj.text;
+            } else {
+                textInputBox.classList.add('hidden');
+            }
+
+            document.getElementById('elementVisible').checked = currentObj.visible !== false;
+            document.getElementById('activeElementStatusText').innerText = `${state.masterSide.toUpperCase()}: ${state.currentTab.toUpperCase()}`;
+
+            const previewSizeInfo = SIZE_DB[state.previewSize];
+            const scaleX = previewSizeInfo.w / MASTER_REF_WIDTH;
+            const scaleY = previewSizeInfo.h / MASTER_REF_HEIGHT;
+            const gradedSleeveW = SLEEVE_REF_WIDTH * scaleX;
+            const gradedSleeveH = (state.activeSleeveType === 'HALF' ? SLEEVE_HALF_REF_HEIGHT : SLEEVE_FULL_REF_HEIGHT) * scaleY;
+            
+            document.getElementById('pallaInchesText').innerText = `${previewSizeInfo.w}" × ${previewSizeInfo.h}"`;
+            document.getElementById('sleeveInchesText').innerText = `${gradedSleeveW.toFixed(1)}" × ${gradedSleeveH.toFixed(1)}" (${state.activeSleeveType})`;
+            document.getElementById('leftSleevePreviewType').innerText = state.activeSleeveType;
+            document.getElementById('rightSleevePreviewType').innerText = state.activeSleeveType;
+
+            const badge = document.getElementById('mirrorBadge');
+            if (state.autoMirrorSleeves) {
+                badge.className = "text-[8px] bg-blue-50 text-blue-800 border border-blue-200 px-1.5 py-0.5 rounded font-black";
+                badge.innerText = "MIRRORED";
+            } else {
+                badge.className = "text-[8px] bg-slate-100 text-slate-600 border border-slate-300 px-1.5 py-0.5 rounded font-black";
+                badge.innerText = "MANUAL";
+            }
+
+            document.getElementById('canvasResText').innerText = `${Math.round(gradedSleeveW * state.dpi)} × ${Math.round(gradedSleeveH * state.dpi)} Px`;
+        }
+
+        function updateElementFont(value) {
+            const currentObj = state[state.masterSide][state.currentTab];
+            if (!currentObj) return;
+            currentObj.fontFamily = value;
+            drawCanvas();
+            showNotification("Font Updated", `Applied style font "${value}"!`, "success");
+        }
+
+        function updateConfigValue(key, value) {
+            const currentObj = state[state.masterSide][state.currentTab];
+            if (!currentObj) return;
+
+            if (key === 'fgColor') currentObj.fgColor = value;
+            else if (key === 'outlineColor') currentObj.outlineColor = value;
+            else if (key === 'targetWidth') currentObj.targetWidthInches = parseFloat(value);
+            else if (key === 'maxHeight') currentObj.maxHeightInches = parseFloat(value);
+            else if (key === 'xPos') currentObj.xPosInches = parseFloat(value);
+            else if (key === 'yPos') currentObj.yPosInches = parseFloat(value);
+            else if (key === 'outlineThickness') currentObj.outlineThicknessInches = parseFloat(value);
+            else if (key === 'letterSpacing') currentObj.letterSpacingInches = parseFloat(value);
+            else if (key === 'arc') currentObj.arc = parseInt(value);
+            else if (key === 'fontWeight') currentObj.fontWeight = parseInt(value);
+            else if (key === 'text') {
+                currentObj.text = value;
+                if (state.masterSide === 'back' && state.currentTab === 'name') {
+                    state.back.name.text = value;
+                } else if (state.masterSide === 'back' && state.currentTab === 'number') {
+                    state.back.number.text = value;
+                } else if (state.masterSide === 'front' && state.currentTab === 'chestNumber') {
+                    state.front.chestNumber.text = value;
+                } else if (state.masterSide === 'back' && state.currentTab === 'teamName') {
+                    state.back.teamName.text = value;
+                }
+            }
+
+            syncControlsToState();
+            drawCanvas();
+        }
+
+        function toggleVisibility(checked) {
+            const currentObj = state[state.masterSide][state.currentTab];
+            if (currentObj) {
+                currentObj.visible = checked;
+                syncControlsToState();
+                drawCanvas();
+            }
+        }
+
+        function toggleCurved(checked) {
+            const currentObj = state[state.masterSide][state.currentTab];
+            if (currentObj) {
+                currentObj.curvedEnabled = checked;
+                syncControlsToState();
+                drawCanvas();
+            }
+        }
+
+        function toggleAutoMirror(checked) {
+            state.autoMirrorSleeves = checked;
+            syncControlsToState();
+            drawCanvas();
+            showNotification("Mirror Status", checked ? "Auto-Mirror active." : "Manual Mode active.", "success");
+        }
+
+        function toggleMirrorLogoImage(checked) {
+            state.mirrorSleeveLogoImage = checked;
+            drawCanvas();
+        }
+
+        function updateCommentConfig(key, value) {
+            if (key === 'visible') state.comment.visible = value;
+            else if (key === 'text') state.comment.text = value;
+            syncControlsToState();
+            drawCanvas();
+        }
+
+        function changePreviewSize(sizeCode) {
+            state.previewSize = sizeCode;
+            syncControlsToState();
+            drawCanvas();
+        }
+
+        function changeDPI(dpiValue) {
+            state.dpi = parseInt(dpiValue);
+            syncControlsToState();
+            drawCanvas();
+        }
+
+        // Upload Handlers
+        async function handlePallaUpload(event, side) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const labelId = side === 'front' ? 'frontFileName' : 'backFileName';
+            document.getElementById(labelId).innerText = file.name;
+
+            if (side === 'front') {
+                state.frontJerseyBlob = file;
+                state.frontJerseyExtension = file.name.split('.').pop().toLowerCase();
+            } else {
+                state.backJerseyBlob = file;
+                state.backJerseyExtension = file.name.split('.').pop().toLowerCase();
+            }
+
+            const loader = document.getElementById('canvasLoader');
+            loader.classList.remove('hidden');
+
+            try {
+                const img = (file.type === "application/pdf" || file.name.endsWith('.pdf')) 
+                    ? await renderPdfPageToImage(file) 
+                    : await loadImageFromFile(file);
+
+                if (side === 'front') state.uploadedFrontJersey = img;
+                else state.uploadedBackJersey = img;
+
+                drawCanvas();
+                showNotification("Template Loaded", `Background file loaded for ${side}!`);
+            } catch (err) {
+                console.error(err);
+                showNotification("Upload Error", "Failed to render template.", "error");
+            } finally {
+                loader.classList.add('hidden');
+            }
+        }
+
+        async function handleSleeveTemplateUpload(event, sleeveType) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const labelId = sleeveType === 'half' ? 'halfSleeveFileName' : 'fullSleeveFileName';
+            document.getElementById(labelId).innerText = file.name;
+
+            if (sleeveType === 'half') {
+                state.halfSleeveBlob = file;
+                state.halfSleeveExtension = file.name.split('.').pop().toLowerCase();
+            } else {
+                state.fullSleeveBlob = file;
+                state.fullSleeveExtension = file.name.split('.').pop().toLowerCase();
+            }
+
+            const loader = document.getElementById('canvasLoader');
+            loader.classList.remove('hidden');
+
+            try {
+                const img = (file.type === "application/pdf" || file.name.endsWith('.pdf')) 
+                    ? await renderPdfPageToImage(file) 
+                    : await loadImageFromFile(file);
+
+                if (sleeveType === 'half') state.uploadedHalfSleeve = img;
+                else state.uploadedFullSleeve = img;
+
+                drawCanvas();
+                showNotification("Sleeve Template Active", `Loaded background for ${sleeveType}!`);
+            } catch (err) {
+                console.error(err);
+                showNotification("Upload Error", "Failed to load sleeve background.", "error");
+            } finally {
+                loader.classList.add('hidden');
+            }
+        }
+
+        function handleLogoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            state.logoBlob = file;
+            state.logoExtension = file.name.split('.').pop().toLowerCase();
+            document.getElementById('logoFileName').innerText = file.name;
+            loadImageFromFile(file).then(img => { state.uploadedLogoImage = img; drawCanvas(); });
+        }
+
+        function handleRightLogoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            state.rightLogoBlob = file;
+            state.rightLogoExtension = file.name.split('.').pop().toLowerCase();
+            document.getElementById('rightLogoFileName').innerText = file.name;
+            loadImageFromFile(file).then(img => { state.uploadedRightLogoImage = img; drawCanvas(); });
+        }
+
+        function handleLeftSleeveLogoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            state.leftSleeveLogoBlob = file;
+            state.leftSleeveLogoExtension = file.name.split('.').pop().toLowerCase();
+            document.getElementById('leftSleeveLogoFileName').innerText = file.name;
+            loadImageFromFile(file).then(img => { state.uploadedLeftSleeveLogoImage = img; drawCanvas(); });
+        }
+
+        function handleRightSleeveLogoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            state.rightSleeveLogoBlob = file;
+            state.rightSleeveLogoExtension = file.name.split('.').pop().toLowerCase();
+            document.getElementById('rightSleeveLogoFileName').innerText = file.name;
+            loadImageFromFile(file).then(img => { state.uploadedRightSleeveLogoImage = img; drawCanvas(); });
+        }
+
+        function handleFrontSponsorLogoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            state.frontSponsorLogoBlob = file;
+            state.frontSponsorLogoExtension = file.name.split('.').pop().toLowerCase();
+            document.getElementById('frontSponsorLogoFileName').innerText = file.name;
+            loadImageFromFile(file).then(img => { state.uploadedFrontSponsorLogoImage = img; state.front.sponsorLogo.visible = true; switchSubTab('sponsorLogo'); });
+        }
+
+        function handleBackLogoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            state.backLogoBlob = file;
+            state.backLogoExtension = file.name.split('.').pop().toLowerCase();
+            document.getElementById('backLogoFileName').innerText = file.name;
+            loadImageFromFile(file).then(img => { state.uploadedBackLogoImage = img; drawCanvas(); });
+        }
+
+        function handleFontUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            document.getElementById('fontFileName').innerText = file.name;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const fontBlob = e.target.result;
+                const customFont = new FontFace('CustomSublimationFont', fontBlob);
+                customFont.load().then(loadedFont => {
+                    document.fonts.add(loadedFont);
+                    state.fontFamily = 'CustomSublimationFont';
+                    state.customFont = loadedFont;
+
+                    const select = document.getElementById('elementFontSelect');
+                    let exists = false;
+                    for (let i = 0; i < select.options.length; i++) {
+                        if (select.options[i].value === 'CustomSublimationFont') {
+                            exists = true;
+                        }
+                    }
+                    if (!exists) {
+                        const opt = document.createElement('option');
+                        opt.value = 'CustomSublimationFont';
+                        opt.innerText = 'Custom Uploaded Font';
+                        select.appendChild(opt);
+                    }
+
+                    const currentObj = state[state.masterSide][state.currentTab];
+                    if (currentObj && currentObj.fontFamily !== undefined) {
+                        currentObj.fontFamily = 'CustomSublimationFont';
+                    }
+
+                    syncControlsToState();
+                    drawCanvas();
+                    showNotification("Font Loaded", "Applied custom brand typography successfully!", "success");
+                });
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function loadImageFromFile(file) {
+            return new Promise((resolve) => {
+                const r = new FileReader();
+                r.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => resolve(img);
+                    img.src = e.target.result;
+                };
+                r.readAsDataURL(file);
+            });
+        }
+
+        function drawCanvas(
+            customName = null, 
+            customNumber = null, 
+            customSize = null, 
+            targetCtxF = fCtx, 
+            targetCtxB = bCtx, 
+            targetDpi = state.dpi,
+            targetCtxLS = lsCtx,
+            targetCtxRS = rsCtx,
+            customSleeveType = null
+        ) {
+            const activeSize = customSize ? normalizeSize(customSize) : state.previewSize;
+            const sizeData = SIZE_DB[activeSize] || SIZE_DB["M"];
+            
+            const scaleX = sizeData.w / MASTER_REF_WIDTH;
+            const scaleY = sizeData.h / MASTER_REF_HEIGHT;
+
+            const targetWidth = Math.round(sizeData.w * targetDpi);
+            const targetHeight = Math.round(sizeData.h * targetDpi);
+
+            const sleeveType = customSleeveType || state.activeSleeveType;
+            const sleeveHInches = (sleeveType === 'HALF' ? SLEEVE_HALF_REF_HEIGHT : SLEEVE_FULL_REF_HEIGHT) * scaleY;
+            const sleeveWInches = SLEEVE_REF_WIDTH * scaleX;
+
+            const targetSleeveW = Math.round(sleeveWInches * targetDpi);
+            const targetSleeveH = Math.round(sleeveHInches * targetDpi);
+
+            if (state.autoMirrorSleeves) {
+                state.rightSleeve.logo.visible = state.leftSleeve.logo.visible;
+                state.rightSleeve.logo.targetWidthInches = state.leftSleeve.logo.targetWidthInches;
+                state.rightSleeve.logo.maxHeightInches = state.leftSleeve.logo.maxHeightInches;
+                state.rightSleeve.logo.xPosInches = parseFloat((SLEEVE_REF_WIDTH - state.leftSleeve.logo.xPosInches).toFixed(2));
+                state.rightSleeve.logo.yPosInches = state.leftSleeve.logo.yPosInches;
+
+                state.rightSleeve.text.visible = state.leftSleeve.text.visible;
+                state.rightSleeve.text.text = state.leftSleeve.text.text;
+                state.rightSleeve.text.targetWidthInches = state.leftSleeve.text.targetWidthInches;
+                state.rightSleeve.text.maxHeightInches = state.leftSleeve.text.maxHeightInches;
+                state.rightSleeve.text.xPosInches = parseFloat((SLEEVE_REF_WIDTH - state.leftSleeve.text.xPosInches).toFixed(2));
+                state.rightSleeve.text.yPosInches = state.leftSleeve.text.yPosInches;
+                state.rightSleeve.text.fgColor = state.leftSleeve.text.fgColor;
+                state.rightSleeve.text.outlineColor = state.leftSleeve.text.outlineColor;
+                state.rightSleeve.text.outlineThicknessInches = state.leftSleeve.text.outlineThicknessInches;
+                state.rightSleeve.text.letterSpacingInches = state.leftSleeve.text.letterSpacingInches;
+                state.rightSleeve.text.fontFamily = state.leftSleeve.text.fontFamily;
+                state.rightSleeve.text.fontWeight = state.leftSleeve.text.fontWeight;
+            }
+
+            if (targetCtxF === fCtx) {
+                frontCanvas.width = targetWidth; frontCanvas.height = targetHeight;
+            }
+            if (targetCtxB === bCtx) {
+                backCanvas.width = targetWidth; backCanvas.height = targetHeight;
+            }
+            if (targetCtxLS === lsCtx) {
+                leftSleeveCanvas.width = targetSleeveW; leftSleeveCanvas.height = targetSleeveH;
+            }
+            if (targetCtxRS === rsCtx) {
+                rightSleeveCanvas.width = targetSleeveW; rightSleeveCanvas.height = targetSleeveH;
+            }
+
+            targetCtxF.clearRect(0, 0, targetWidth, targetHeight);
+            if (state.uploadedFrontJersey) {
+                targetCtxF.drawImage(state.uploadedFrontJersey, 0, 0, targetWidth, targetHeight);
+            } else {
+                targetCtxF.fillStyle = '#1e3a8a'; targetCtxF.fillRect(0, 0, targetWidth, targetHeight);
+            }
+
+            targetCtxB.clearRect(0, 0, targetWidth, targetHeight);
+            if (state.uploadedBackJersey) {
+                targetCtxB.drawImage(state.uploadedBackJersey, 0, 0, targetWidth, targetHeight);
+            } else {
+                targetCtxB.fillStyle = '#1e40af'; targetCtxB.fillRect(0, 0, targetWidth, targetHeight);
+            }
+
+            const sleeveImg = (sleeveType === 'HALF') ? state.uploadedHalfSleeve : state.uploadedFullSleeve;
+
+            targetCtxLS.clearRect(0, 0, targetSleeveW, targetSleeveH);
+            if (sleeveImg) {
+                targetCtxLS.drawImage(sleeveImg, 0, 0, targetSleeveW, targetSleeveH);
+            } else {
+                targetCtxLS.fillStyle = '#1e3a8a'; targetCtxLS.fillRect(0, 0, targetSleeveW, targetSleeveH);
+            }
+
+            targetCtxRS.clearRect(0, 0, targetSleeveW, targetSleeveH);
+            targetCtxRS.save();
+            if (state.autoMirrorSleeves) {
+                targetCtxRS.translate(targetSleeveW, 0);
+                targetCtxRS.scale(-1, 1);
+            }
+            if (sleeveImg) {
+                targetCtxRS.drawImage(sleeveImg, 0, 0, targetSleeveW, targetSleeveH);
+            } else {
+                targetCtxRS.fillStyle = '#1e3a8a'; targetCtxRS.fillRect(0, 0, targetSleeveW, targetSleeveH);
+            }
+            targetCtxRS.restore();
+
+            const activeName = (customName !== null ? customName : state.back.name.text).toUpperCase();
+            const activeNumber = customNumber !== null ? customNumber : state.back.number.text;
+            const activeFrontNumber = customNumber !== null ? customNumber : state.front.chestNumber.text;
+
+            if (state.front.logo.visible !== false) drawProportionalAsset(state.uploadedLogoImage, state.front.logo, targetCtxF, scaleX, scaleY, targetDpi, 'shield_left');
+            if (state.front.logoRight.visible !== false) drawProportionalAsset(state.uploadedRightLogoImage, state.front.logoRight, targetCtxF, scaleX, scaleY, targetDpi, 'shield_right');
+            if (state.front.chestNumber.visible !== false) drawScalableText(activeFrontNumber, state.front.chestNumber, targetCtxF, targetWidth, targetHeight, targetDpi, scaleX, scaleY);
+            if (state.front.sponsor.visible !== false) drawScalableText(state.front.sponsor.text.toUpperCase(), state.front.sponsor, targetCtxF, targetWidth, targetHeight, targetDpi, scaleX, scaleY);
+            if (state.front.sponsorLogo.visible !== false) drawProportionalAsset(state.uploadedFrontSponsorLogoImage, state.front.sponsorLogo, targetCtxF, scaleX, scaleY, targetDpi, 'sponsor_rect');
+
+            if (state.back.name.visible !== false) drawScalableText(activeName, state.back.name, targetCtxB, targetWidth, targetHeight, targetDpi, scaleX, scaleY);
+            if (state.back.number.visible !== false) drawScalableText(activeNumber, state.back.number, targetCtxB, targetWidth, targetHeight, targetDpi, scaleX, scaleY);
+            if (state.back.logo.visible !== false) drawProportionalAsset(state.uploadedBackLogoImage, state.back.logo, targetCtxB, scaleX, scaleY, targetDpi, 'circle_logo');
+            if (state.back.teamName.visible !== false) drawScalableText(state.back.teamName.text.toUpperCase(), state.back.teamName, targetCtxB, targetWidth, targetHeight, targetDpi, scaleX, scaleY);
+
+            if (state.sleevesEnabled) {
+                if (state.leftSleeve.logo.visible !== false) drawProportionalAsset(state.uploadedLeftSleeveLogoImage, state.leftSleeve.logo, targetCtxLS, scaleX, scaleY, targetDpi, 'left_sleeve_emblem', sleeveWInches, sleeveHInches);
+                if (state.leftSleeve.text.visible !== false) drawScalableText(state.leftSleeve.text.text.toUpperCase(), state.leftSleeve.text, targetCtxLS, targetSleeveW, targetSleeveH, targetDpi, scaleX, scaleY, sleeveWInches, sleeveHInches);
+
+                if (state.rightSleeve.logo.visible !== false) {
+                    const rightSleeveLogoImg = state.uploadedRightSleeveLogoImage || state.uploadedLeftSleeveLogoImage;
+                    drawProportionalAsset(rightSleeveLogoImg, state.rightSleeve.logo, targetCtxRS, scaleX, scaleY, targetDpi, 'right_sleeve_emblem', sleeveWInches, sleeveHInches, state.mirrorSleeveLogoImage);
+                }
+                if (state.rightSleeve.text.visible !== false) {
+                    drawScalableText(state.rightSleeve.text.text.toUpperCase(), state.rightSleeve.text, targetCtxRS, targetSleeveW, targetSleeveH, targetDpi, scaleX, scaleY, sleeveWInches, sleeveHInches);
+                }
+            } else {
+                targetCtxLS.save();
+                targetCtxLS.fillStyle = "rgba(255, 255, 255, 0.9)";
+                targetCtxLS.fillRect(0, 0, targetSleeveW, targetSleeveH);
+                targetCtxLS.fillStyle = "#ef4444";
+                targetCtxLS.font = `bold ${targetSleeveH * 0.12}px sans-serif`;
+                targetCtxLS.textAlign = "center";
+                targetCtxLS.textBaseline = "middle";
+                targetCtxLS.fillText("SLEEVES PRINT: DISABLED", targetSleeveW / 2, targetSleeveH / 2);
+                targetCtxLS.restore();
+
+                targetCtxRS.save();
+                targetCtxRS.fillStyle = "rgba(255, 255, 255, 0.9)";
+                targetCtxRS.fillRect(0, 0, targetSleeveW, targetSleeveH);
+                targetCtxRS.fillStyle = "#ef4444";
+                targetCtxRS.font = `bold ${targetSleeveH * 0.12}px sans-serif`;
+                targetCtxRS.textAlign = "center";
+                targetCtxRS.textBaseline = "middle";
+                targetCtxRS.fillText("SLEEVES PRINT: DISABLED", targetSleeveW / 2, targetSleeveH / 2);
+                targetCtxRS.restore();
+            }
+
+            if (state.comment.visible !== false) {
+                drawTopComment(activeSize, targetCtxF, targetWidth, targetDpi, scaleX);
+                drawTopComment(activeSize, targetCtxB, targetWidth, targetDpi, scaleX);
+                if (state.sleevesEnabled) {
+                    drawTopComment(activeSize, targetCtxLS, targetSleeveW, targetDpi, scaleX);
+                    drawTopComment(activeSize, targetCtxRS, targetSleeveW, targetDpi, scaleX);
+                }
+            }
+
+            if (document.getElementById('showGuides').checked) {
+                if (targetCtxF === fCtx) drawInteractiveGuides('front', fCtx, targetDpi, scaleX, scaleY);
+                if (targetCtxB === bCtx) drawInteractiveGuides('back', bCtx, targetDpi, scaleX, scaleY);
+                if (state.sleevesEnabled) {
+                    if (targetCtxLS === lsCtx) drawInteractiveGuides('leftSleeve', lsCtx, targetDpi, scaleX, scaleY, sleeveWInches, sleeveHInches);
+                    if (targetCtxRS === rsCtx) drawInteractiveGuides('rightSleeve', rsCtx, targetDpi, scaleX, scaleY, sleeveWInches, sleeveHInches);
+                }
+            }
+        }
+
+        function drawProportionalAsset(img, config, ctx, scaleX, scaleY, dpi, typePlaceholder, customMaxWInches = MASTER_REF_WIDTH, customMaxHInches = MASTER_REF_HEIGHT, mirrorHorizontally = false) {
+            ctx.save();
+            const w = config.targetWidthInches * scaleX * dpi;
+            const h = config.maxHeightInches * scaleX * dpi;
+            const x = config.xPosInches * scaleX * dpi;
+            const y = config.yPosInches * scaleY * dpi;
+
+            if (mirrorHorizontally) {
+                ctx.translate(x, y);
+                ctx.scale(-1, 1);
+                if (img) {
+                    ctx.drawImage(img, -(w / 2), -(h / 2), w, h);
+                } else {
+                    ctx.beginPath();
+                    ctx.rect(-w/2, -h/2, w, h);
+                    ctx.fillStyle = 'rgba(234, 179, 8, 0.25)';
+                    ctx.fill();
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#eab308';
+                    ctx.stroke();
+
+                    ctx.fillStyle = '#000000';
+                    ctx.font = `bold ${w * 0.15}px sans-serif`;
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    ctx.fillText(typePlaceholder.toUpperCase() + " (M)", 0, 0);
+                }
+            } else {
+                if (img) {
+                    ctx.drawImage(img, x - (w / 2), y - (h / 2), w, h);
+                } else {
+                    ctx.translate(x, y);
+                    ctx.beginPath();
+                    ctx.rect(-w/2, -h/2, w, h);
+                    ctx.fillStyle = 'rgba(30, 64, 175, 0.25)';
+                    ctx.fill();
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#1e40af';
+                    ctx.stroke();
+
+                    ctx.fillStyle = '#000000';
+                    ctx.font = `bold ${w * 0.15}px sans-serif`;
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    ctx.fillText(typePlaceholder.toUpperCase(), 0, 0);
+                }
+            }
+            ctx.restore();
+        }
+
+        function drawScalableText(text, config, ctx, canvasW, canvasH, dpi, scaleX, scaleY, customMaxWInches = MASTER_REF_WIDTH, customMaxHInches = MASTER_REF_HEIGHT) {
+            ctx.save();
+            
+            const w = (config.targetWidthInches * scaleX) * dpi;
+            const maxH = (config.maxHeightInches * scaleX) * dpi;
+            const outline = (config.outlineThicknessInches * scaleX) * dpi;
+            const spacing = (config.letterSpacingInches * scaleX) * dpi;
+            const y = (config.yPosInches * scaleY) * dpi;
+            const x = (config.xPosInches * scaleX) * dpi;
+            
+            const elementFont = config.fontFamily || state.fontFamily || 'Teko';
+            const weight = config.fontWeight || 'bold';
+            ctx.font = `${weight} 100px "${elementFont}", Impact, sans-serif`;
+            
+            let textMeasureWidth = 0;
+            if (spacing === 0) {
+                textMeasureWidth = ctx.measureText(text).width;
+            } else {
+                for (let i = 0; i < text.length; i++) {
+                    textMeasureWidth += ctx.measureText(text[i]).width + (i < text.length - 1 ? (spacing * 100 / maxH) : 0);
+                }
+            }
+            
+            let proportionalFontSize = (w / textMeasureWidth) * 100;
+            if (proportionalFontSize > maxH) proportionalFontSize = maxH;
+
+            ctx.font = `${weight} ${proportionalFontSize}px "${elementFont}", Impact, sans-serif`;
+            ctx.fillStyle = config.fgColor;
+            ctx.strokeStyle = config.outlineColor;
+            ctx.lineWidth = outline;
+            ctx.lineJoin = "round";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
+            if (config.curvedEnabled && config.arc !== 0) {
+                const radius = (canvasW * 1.5) - (config.arc * 10);
+                const originX = x;
+                const originY = y + radius;
+                
+                let letterWidths = [];
+                let totalAngleWidth = 0;
+                for (let i = 0; i < text.length; i++) {
+                    const charW = ctx.measureText(text[i]).width + spacing;
+                    letterWidths.push(charW);
+                    totalAngleWidth += charW;
+                }
+                
+                const totalAngle = totalAngleWidth / radius;
+                let currentAngle = -totalAngle / 2;
+                
+                for (let i = 0; i < text.length; i++) {
+                    const char = text[i];
+                    const charAngle = letterWidths[i] / radius;
+                    
+                    ctx.save();
+                    const targetAngle = currentAngle + (charAngle / 2);
+                    const tx = originX + Math.sin(targetAngle) * radius;
+                    const ty = originY - Math.cos(targetAngle) * radius;
+                    
+                    ctx.translate(tx, ty);
+                    ctx.rotate(targetAngle);
+                    if (outline > 0) ctx.strokeText(char, 0, 0);
+                    ctx.fillText(char, 0, 0);
+                    ctx.restore();
+                    currentAngle += charAngle;
+                }
+            } else {
+                ctx.translate(x, y);
+                if (spacing === 0) {
+                    if (outline > 0) ctx.strokeText(text, 0, 0);
+                    ctx.fillText(text, 0, 0);
+                } else {
+                    let totalSpacingWidth = 0;
+                    const charWidths = [];
+                    for (let i = 0; i < text.length; i++) {
+                        const charW = ctx.measureText(text[i]).width;
+                        charWidths.push(charW);
+                        totalSpacingWidth += charW + (i < text.length - 1 ? spacing : 0);
+                    }
+                    
+                    let startX = -totalSpacingWidth / 2;
+                    for (let i = 0; i < text.length; i++) {
+                        const char = text[i];
+                        const charW = charWidths[i];
+                        const posX = startX + (charW / 2);
+                        if (outline > 0) ctx.strokeText(char, posX, 0);
+                        ctx.fillText(char, posX, 0);
+                        startX += charW + spacing;
+                    }
+                }
+            }
+            ctx.restore();
+        }
+
+        function drawTopComment(activeSize, ctx, canvasW, dpi, scaleX) {
+            ctx.save();
+            const fs = state.comment.fontSizeInches * scaleX * dpi;
+            const outline = state.comment.outlineThicknessInches * scaleX * dpi;
+            const fullLabel = `${state.comment.text} - SIZE: ${activeSize}`.toUpperCase();
+            
+            ctx.font = `bold ${fs}px sans-serif`;
+            ctx.fillStyle = state.comment.fgColor;
+            ctx.strokeStyle = state.comment.outlineColor;
+            ctx.lineWidth = outline;
+            ctx.textAlign = "center";
+            ctx.textBaseline = "top";
+            
+            if (outline > 0) ctx.strokeText(fullLabel, canvasW / 2, 5);
+            ctx.fillText(fullLabel, canvasW / 2, 5);
+            ctx.restore();
+        }
+
+        function drawInteractiveGuides(side, ctx, dpi, scaleX, scaleY, maxWInches = MASTER_REF_WIDTH, maxHInches = MASTER_REF_HEIGHT) {
+            ctx.save();
+            const elements = state[side];
+            for (let elKey in elements) {
+                const config = elements[elKey];
+                if (config.visible === false) continue;
+
+                const isActive = (state.masterSide === side && state.currentTab === elKey);
+                
+                const w = config.targetWidthInches * scaleX * dpi;
+                const h = config.maxHeightInches * scaleX * dpi;
+                const x = (config.xPosInches * scaleX * dpi) - (w / 2);
+                const y = (config.yPosInches * scaleY * dpi) - (h / 2);
+
+                if (isActive) {
+                    ctx.strokeStyle = "rgba(234, 179, 8, 0.9)";
+                    ctx.lineWidth = 3.5;
+                    ctx.setLineDash([]);
+                } else {
+                    ctx.strokeStyle = "rgba(30, 64, 175, 0.4)";
+                    ctx.lineWidth = 1.5;
+                    ctx.setLineDash([5, 5]);
+                }
+
+                ctx.strokeRect(x, y, w, h);
+                ctx.fillStyle = isActive ? "#1e40af" : "#475569";
+                ctx.font = "bold 9px monospace";
+                ctx.fillText(`${elKey.toUpperCase()} (${(config.targetWidthInches*scaleX).toFixed(1)}")`, x, y - 4);
+            }
+            ctx.restore();
+        }
+
+        function setupDragHandlers() {
+            function handleStart(e, side, canvasEl) {
+                if (side === 'rightSleeve' && state.autoMirrorSleeves) {
+                    showNotification("Linked Mode Active", "Please edit LEFT SLEEVE layout. Right sleeve updates automatically.", "info");
+                    return;
+                }
+
+                const rect = canvasEl.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                
+                const pxX = (clientX - rect.left) / (rect.right - rect.left) * canvasEl.width;
+                const pxY = (clientY - rect.top) / (rect.bottom - rect.top) * canvasEl.height;
+                
+                const mouseInchesX = pxX / state.dpi;
+                const mouseInchesY = pxY / state.dpi;
+
+                const sizeData = SIZE_DB[state.previewSize] || SIZE_DB["M"];
+                const scaleX = sizeData.w / MASTER_REF_WIDTH;
+                const scaleY = sizeData.h / MASTER_REF_HEIGHT;
+
+                const elements = state[side];
+                for (let elKey in elements) {
+                    const config = elements[elKey];
+                    if (config.visible === false) continue;
+
+                    const elW = config.targetWidthInches * scaleX;
+                    const elH = config.maxHeightInches * scaleX;
+                    const elX = config.xPosInches * scaleX;
+                    const elY = config.yPosInches * scaleY;
+
+                    if (Math.abs(mouseInchesX - elX) < (elW / 2) && Math.abs(mouseInchesY - elY) < (elH / 2)) {
+                        state.isDragging = true;
+                        state.draggedSide = side;
+                        state.draggedElement = elKey;
+                        state.mouseXOffsetInches = mouseInchesX - elX;
+                        state.mouseYOffsetInches = mouseInchesY - elY;
+                        
+                        switchMasterSide(side);
+                        switchSubTab(elKey);
+                        break;
+                    }
+                }
+            }
+
+            function handleMove(e) {
+                if (!state.isDragging || !state.draggedSide || !state.draggedElement) return;
+                e.preventDefault();
+
+                let canvasEl = frontCanvas;
+                if (state.draggedSide === 'back') canvasEl = backCanvas;
+                if (state.draggedSide === 'leftSleeve') canvasEl = leftSleeveCanvas;
+                if (state.draggedSide === 'rightSleeve') canvasEl = rightSleeveCanvas;
+
+                const rect = canvasEl.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                
+                const pxX = (clientX - rect.left) / (rect.right - rect.left) * canvasEl.width;
+                const pxY = (clientY - rect.top) / (rect.bottom - rect.top) * canvasEl.height;
+
+                const sizeData = SIZE_DB[state.previewSize] || SIZE_DB["M"];
+                const scaleX = sizeData.w / MASTER_REF_WIDTH;
+                const scaleY = sizeData.h / MASTER_REF_HEIGHT;
+
+                let maxW = MASTER_REF_WIDTH;
+                let maxH = MASTER_REF_HEIGHT;
+                if (state.draggedSide === 'leftSleeve' || state.draggedSide === 'rightSleeve') {
+                    maxW = SLEEVE_REF_WIDTH;
+                    maxH = (state.activeSleeveType === 'HALF') ? SLEEVE_HALF_REF_HEIGHT : SLEEVE_FULL_REF_HEIGHT;
+                }
+
+                const targetScaledX = (pxX / state.dpi) - state.mouseXOffsetInches;
+                const targetScaledY = (pxY / state.dpi) - state.mouseYOffsetInches;
+
+                const constrainedX = Math.max(0.5, Math.min(maxW - 0.5, targetScaledX / scaleX));
+                const constrainedY = Math.max(0.5, Math.min(maxH - 0.5, targetScaledY / scaleY));
+
+                state[state.draggedSide][state.draggedElement].xPosInches = parseFloat(constrainedX.toFixed(2));
+                state[state.draggedSide][state.draggedElement].yPosInches = parseFloat(constrainedY.toFixed(2));
+
+                document.getElementById('xPos').value = constrainedX;
+                document.getElementById('xPosValue').innerText = constrainedX.toFixed(1) + ' Inch';
+                document.getElementById('yPos').value = constrainedY;
+                document.getElementById('yPosValue').innerText = constrainedY.toFixed(1) + ' Inch';
+
+                drawCanvas();
+            }
+
+            function handleEnd() {
+                state.isDragging = false;
+                state.draggedSide = null;
+                state.draggedElement = null;
+            }
+
+            frontCanvas.addEventListener('mousedown', (e) => handleStart(e, 'front', frontCanvas));
+            frontCanvas.addEventListener('mousemove', handleMove);
+            frontCanvas.addEventListener('touchstart', (e) => handleStart(e, 'front', frontCanvas), {passive:false});
+            frontCanvas.addEventListener('touchmove', handleMove, {passive:false});
+
+            backCanvas.addEventListener('mousedown', (e) => handleStart(e, 'back', backCanvas));
+            backCanvas.addEventListener('mousemove', handleMove);
+            backCanvas.addEventListener('touchstart', (e) => handleStart(e, 'back', backCanvas), {passive:false});
+            backCanvas.addEventListener('touchmove', handleMove, {passive:false});
+
+            leftSleeveCanvas.addEventListener('mousedown', (e) => handleStart(e, 'leftSleeve', leftSleeveCanvas));
+            leftSleeveCanvas.addEventListener('mousemove', handleMove);
+            leftSleeveCanvas.addEventListener('touchstart', (e) => handleStart(e, 'leftSleeve', leftSleeveCanvas), {passive:false});
+            leftSleeveCanvas.addEventListener('touchmove', handleMove, {passive:false});
+
+            rightSleeveCanvas.addEventListener('mousedown', (e) => handleStart(e, 'rightSleeve', rightSleeveCanvas));
+            rightSleeveCanvas.addEventListener('mousemove', handleMove);
+            rightSleeveCanvas.addEventListener('touchstart', (e) => handleStart(e, 'rightSleeve', rightSleeveCanvas), {passive:false});
+            rightSleeveCanvas.addEventListener('touchmove', handleMove, {passive:false});
+
+            window.addEventListener('mouseup', handleEnd);
+            window.addEventListener('touchend', handleEnd);
+        }
+
+        window.addEventListener('keydown', function(e) {
+            if (document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA')) return;
+            const keys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+            if (!keys.includes(e.key)) return;
+            e.preventDefault();
+
+            if (state.masterSide === 'rightSleeve' && state.autoMirrorSleeves) {
+                showNotification("Linked Mode", "Left sleeve keys modify Right side synchronously.", "info");
+                return;
+            }
+
+            const currentObj = state[state.masterSide][state.currentTab];
+            if (!currentObj) return;
+
+            let maxW = MASTER_REF_WIDTH;
+            let maxH = MASTER_REF_HEIGHT;
+            if (state.masterSide === 'leftSleeve' || state.masterSide === 'rightSleeve') {
+                maxW = SLEEVE_REF_WIDTH;
+                maxH = (state.activeSleeveType === 'HALF') ? SLEEVE_HALF_REF_HEIGHT : SLEEVE_FULL_REF_HEIGHT;
+            }
+
+            const step = 0.1;
+            if (e.key === 'ArrowUp') currentObj.yPosInches = Math.max(0.5, parseFloat((currentObj.yPosInches - step).toFixed(2)));
+            else if (e.key === 'ArrowDown') currentObj.yPosInches = Math.min(maxH - 0.5, parseFloat((currentObj.yPosInches + step).toFixed(2)));
+            else if (e.key === 'ArrowLeft') currentObj.xPosInches = Math.max(0.5, parseFloat((currentObj.xPosInches - step).toFixed(2)));
+            else if (e.key === 'ArrowRight') currentObj.xPosInches = Math.min(maxW - 0.5, parseFloat((currentObj.xPosInches + step).toFixed(2)));
+
+            syncControlsToState();
+            drawCanvas();
+        });
+
+        // Config file parsing engine
+        function parseConfigTxt(txt) {
+            const lines = txt.split('\n');
+            const map = {};
+            lines.forEach(line => {
+                const tr = line.trim();
+                if (tr === "" || tr.startsWith("//")) return;
+                const p = tr.split(':');
+                if (p.length >= 2) map[p[0].trim()] = p.slice(1).join(':').trim();
+            });
+
+            const parseBool = (s) => s === 'true';
+            const val = (s, def) => isNaN(parseFloat(s)) ? def : parseFloat(s);
+
+            if (map['sleeves_enabled'] !== undefined) {
+                state.sleevesEnabled = parseBool(map['sleeves_enabled']);
+                document.getElementById('sleevesEnabledToggle').checked = state.sleevesEnabled;
+                toggleSleevesPrinting(state.sleevesEnabled);
+            }
+            if (map['auto_mirror_sleeves'] !== undefined) {
+                state.autoMirrorSleeves = parseBool(map['auto_mirror_sleeves']);
+                document.getElementById('autoMirrorSleeves').checked = state.autoMirrorSleeves;
+            }
+            if (map['mirror_sleeve_logo_image'] !== undefined) {
+                state.mirrorSleeveLogoImage = parseBool(map['mirror_sleeve_logo_image']);
+                document.getElementById('mirrorSleeveLogoImage').checked = state.mirrorSleeveLogoImage;
+            }
+
+            // FRONT ELEMENTS
+            if (map['front_logo_visible'] !== undefined) state.front.logo.visible = parseBool(map['front_logo_visible']);
+            if (map['front_logo_width'] !== undefined) state.front.logo.targetWidthInches = val(map['front_logo_width'], 3.2);
+            if (map['front_logo_height'] !== undefined) state.front.logo.maxHeightInches = val(map['front_logo_height'], 3.2);
+            if (map['front_logo_x'] !== undefined) state.front.logo.xPosInches = val(map['front_logo_x'], 6.5);
+            if (map['front_logo_y'] !== undefined) state.front.logo.yPosInches = val(map['front_logo_y'], 8.5);
+
+            if (map['front_logo_right_visible'] !== undefined) state.front.logoRight.visible = parseBool(map['front_logo_right_visible']);
+            if (map['front_logo_right_width'] !== undefined) state.front.logoRight.targetWidthInches = val(map['front_logo_right_width'], 3.2);
+            if (map['front_logo_right_height'] !== undefined) state.front.logoRight.maxHeightInches = val(map['front_logo_right_height'], 3.2);
+            if (map['front_logo_right_x'] !== undefined) state.front.logoRight.xPosInches = val(map['front_logo_right_x'], 14.5);
+            if (map['front_logo_right_y'] !== undefined) state.front.logoRight.yPosInches = val(map['front_logo_right_y'], 8.5);
+
+            if (map['front_chestNumber_visible'] !== undefined) state.front.chestNumber.visible = parseBool(map['front_chestNumber_visible']);
+            if (map['front_chestNumber_text'] !== undefined) state.front.chestNumber.text = map['front_chestNumber_text'];
+            if (map['front_chestNumber_width'] !== undefined) state.front.chestNumber.targetWidthInches = val(map['front_chestNumber_width'], 3.2);
+            if (map['front_chestNumber_height'] !== undefined) state.front.chestNumber.maxHeightInches = val(map['front_chestNumber_height'], 3.2);
+            if (map['front_chestNumber_x'] !== undefined) state.front.chestNumber.xPosInches = val(map['front_chestNumber_x'], 14.5);
+            if (map['front_chestNumber_y'] !== undefined) state.front.chestNumber.yPosInches = val(map['front_chestNumber_y'], 7.5);
+            if (map['front_chestNumber_color'] !== undefined) state.front.chestNumber.fgColor = map['front_chestNumber_color'];
+            if (map['front_chestNumber_outline'] !== undefined) state.front.chestNumber.outlineColor = map['front_chestNumber_outline'];
+            if (map['front_chestNumber_outline_thickness'] !== undefined) state.front.chestNumber.outlineThicknessInches = val(map['front_chestNumber_outline_thickness'], 0.10);
+            if (map['front_chestNumber_letter_spacing'] !== undefined) state.front.chestNumber.letterSpacingInches = val(map['front_chestNumber_letter_spacing'], 0.05);
+            if (map['front_chestNumber_font'] !== undefined) state.front.chestNumber.fontFamily = map['front_chestNumber_font'];
+            if (map['front_chestNumber_weight'] !== undefined) state.front.chestNumber.fontWeight = parseInt(map['front_chestNumber_weight']) || 100;
+
+            if (map['front_sponsor_visible'] !== undefined) state.front.sponsor.visible = parseBool(map['front_sponsor_visible']);
+            if (map['front_sponsor_text'] !== undefined) state.front.sponsor.text = map['front_sponsor_text'];
+            if (map['front_sponsor_width'] !== undefined) state.front.sponsor.targetWidthInches = val(map['front_sponsor_width'], 13.0);
+            if (map['front_sponsor_height'] !== undefined) state.front.sponsor.maxHeightInches = val(map['front_sponsor_height'], 3.5);
+            if (map['front_sponsor_x'] !== undefined) state.front.sponsor.xPosInches = val(map['front_sponsor_x'], 10.5);
+            if (map['front_sponsor_y'] !== undefined) state.front.sponsor.yPosInches = val(map['front_sponsor_y'], 15.0);
+            if (map['front_sponsor_color'] !== undefined) state.front.sponsor.fgColor = map['front_sponsor_color'];
+            if (map['front_sponsor_outline'] !== undefined) state.front.sponsor.outlineColor = map['front_sponsor_outline'];
+            if (map['front_sponsor_outline_thickness'] !== undefined) state.front.sponsor.outlineThicknessInches = val(map['front_sponsor_outline_thickness'], 0.12);
+            if (map['front_sponsor_letter_spacing'] !== undefined) state.front.sponsor.letterSpacingInches = val(map['front_sponsor_letter_spacing'], 0.15);
+            if (map['front_sponsor_curved'] !== undefined) state.front.sponsor.curvedEnabled = parseBool(map['front_sponsor_curved']);
+            if (map['front_sponsor_arc'] !== undefined) state.front.sponsor.arc = parseInt(map['front_sponsor_arc']) || 25;
+            if (map['front_sponsor_font'] !== undefined) state.front.sponsor.fontFamily = map['front_sponsor_font'];
+            if (map['front_sponsor_weight'] !== undefined) state.front.sponsor.fontWeight = parseInt(map['front_sponsor_weight']) || 100;
+
+            if (map['front_sponsorLogo_visible'] !== undefined) state.front.sponsorLogo.visible = parseBool(map['front_sponsorLogo_visible']);
+            if (map['front_sponsorLogo_width'] !== undefined) state.front.sponsorLogo.targetWidthInches = val(map['front_sponsorLogo_width'], 11.0);
+            if (map['front_sponsorLogo_height'] !== undefined) state.front.sponsorLogo.maxHeightInches = val(map['front_sponsorLogo_height'], 4.5);
+            if (map['front_sponsorLogo_x'] !== undefined) state.front.sponsorLogo.xPosInches = val(map['front_sponsorLogo_x'], 10.5);
+            if (map['front_sponsorLogo_y'] !== undefined) state.front.sponsorLogo.yPosInches = val(map['front_sponsorLogo_y'], 19.5);
+
+            // BACK ELEMENTS
+            if (map['back_name_visible'] !== undefined) state.back.name.visible = parseBool(map['back_name_visible']);
+            if (map['back_name_text'] !== undefined) state.back.name.text = map['back_name_text'];
+            if (map['back_name_width'] !== undefined) state.back.name.targetWidthInches = val(map['back_name_width'], 10.0);
+            if (map['back_name_height'] !== undefined) state.back.name.maxHeightInches = val(map['back_name_height'], 3.5);
+            if (map['back_name_x'] !== undefined) state.back.name.xPosInches = val(map['back_name_x'], 10.5);
+            if (map['back_name_y'] !== undefined) state.back.name.yPosInches = val(map['back_name_y'], 6.0);
+            if (map['back_name_color'] !== undefined) state.back.name.fgColor = map['back_name_color'];
+            if (map['back_name_outline'] !== undefined) state.back.name.outlineColor = map['back_name_outline'];
+            if (map['back_name_outline_thickness'] !== undefined) state.back.name.outlineThicknessInches = val(map['back_name_outline_thickness'], 0.12);
+            if (map['back_name_letter_spacing'] !== undefined) state.back.name.letterSpacingInches = val(map['back_name_letter_spacing'], 0.15);
+            if (map['back_name_curved'] !== undefined) state.back.name.curvedEnabled = parseBool(map['back_name_curved']);
+            if (map['back_name_arc'] !== undefined) state.back.name.arc = parseInt(map['back_name_arc']) || 25;
+            if (map['back_name_font'] !== undefined) state.back.name.fontFamily = map['back_name_font'];
+            if (map['back_name_weight'] !== undefined) state.back.name.fontWeight = parseInt(map['back_name_weight']) || 100;
+
+            if (map['back_number_visible'] !== undefined) state.back.number.visible = parseBool(map['back_number_visible']);
+            if (map['back_number_text'] !== undefined) state.back.number.text = map['back_number_text'];
+            if (map['back_number_width'] !== undefined) state.back.number.targetWidthInches = val(map['back_number_width'], 9.0);
+            if (map['back_number_height'] !== undefined) state.back.number.maxHeightInches = val(map['back_number_height'], 8.5);
+            if (map['back_number_x'] !== undefined) state.back.number.xPosInches = val(map['back_number_x'], 10.5);
+            if (map['back_number_y'] !== undefined) state.back.number.yPosInches = val(map['back_number_y'], 15.0);
+            if (map['back_number_color'] !== undefined) state.back.number.fgColor = map['back_number_color'];
+            if (map['back_number_outline'] !== undefined) state.back.number.outlineColor = map['back_number_outline'];
+            if (map['back_number_outline_thickness'] !== undefined) state.back.number.outlineThicknessInches = val(map['back_number_outline_thickness'], 0.18);
+            if (map['back_number_letter_spacing'] !== undefined) state.back.number.letterSpacingInches = val(map['back_number_letter_spacing'], 0.05);
+            if (map['back_number_font'] !== undefined) state.back.number.fontFamily = map['back_number_font'];
+            if (map['back_number_weight'] !== undefined) state.back.number.fontWeight = parseInt(map['back_number_weight']) || 100;
+
+            if (map['back_logo_visible'] !== undefined) state.back.logo.visible = parseBool(map['back_logo_visible']);
+            if (map['back_logo_width'] !== undefined) state.back.logo.targetWidthInches = val(map['back_logo_width'], 6.0);
+            if (map['back_logo_height'] !== undefined) state.back.logo.maxHeightInches = val(map['back_logo_height'], 6.0);
+            if (map['back_logo_x'] !== undefined) state.back.logo.xPosInches = val(map['back_logo_x'], 10.5);
+            if (map['back_logo_y'] !== undefined) state.back.logo.yPosInches = val(map['back_logo_y'], 22.0);
+
+            if (map['back_teamName_visible'] !== undefined) state.back.teamName.visible = parseBool(map['back_teamName_visible']);
+            if (map['back_teamName_text'] !== undefined) state.back.teamName.text = map['back_teamName_text'];
+            if (map['back_teamName_width'] !== undefined) state.back.teamName.targetWidthInches = val(map['back_teamName_width'], 12.0);
+            if (map['back_teamName_height'] !== undefined) state.back.teamName.maxHeightInches = val(map['back_teamName_height'], 2.0);
+            if (map['back_teamName_x'] !== undefined) state.back.teamName.xPosInches = val(map['back_teamName_x'], 10.5);
+            if (map['back_teamName_y'] !== undefined) state.back.teamName.yPosInches = val(map['back_teamName_y'], 26.0);
+            if (map['back_teamName_color'] !== undefined) state.back.teamName.fgColor = map['back_teamName_color'];
+            if (map['back_teamName_outline'] !== undefined) state.back.teamName.outlineColor = map['back_teamName_outline'];
+            if (map['back_teamName_outline_thickness'] !== undefined) state.back.teamName.outlineThicknessInches = val(map['back_teamName_outline_thickness'], 0.10);
+            if (map['back_teamName_letter_spacing'] !== undefined) state.back.teamName.letterSpacingInches = val(map['back_teamName_letter_spacing'], 0.12);
+            if (map['back_teamName_curved'] !== undefined) state.back.teamName.curvedEnabled = parseBool(map['back_teamName_curved']);
+            if (map['back_teamName_arc'] !== undefined) state.back.teamName.arc = parseInt(map['back_teamName_arc']) || 25;
+            if (map['back_teamName_font'] !== undefined) state.back.teamName.fontFamily = map['back_teamName_font'];
+            if (map['back_teamName_weight'] !== undefined) state.back.teamName.fontWeight = parseInt(map['back_teamName_weight']) || 100;
+
+            // SLEEVE LEFT
+            if (map['left_sleeve_logo_visible'] !== undefined) state.leftSleeve.logo.visible = parseBool(map['left_sleeve_logo_visible']);
+            if (map['left_sleeve_logo_width'] !== undefined) state.leftSleeve.logo.targetWidthInches = val(map['left_sleeve_logo_width'], 3.0);
+            if (map['left_sleeve_logo_height'] !== undefined) state.leftSleeve.logo.maxHeightInches = val(map['left_sleeve_logo_height'], 3.0);
+            if (map['left_sleeve_logo_x'] !== undefined) state.leftSleeve.logo.xPosInches = val(map['left_sleeve_logo_x'], 11.75);
+            if (map['left_sleeve_logo_y'] !== undefined) state.leftSleeve.logo.yPosInches = val(map['left_sleeve_logo_y'], 5.5);
+
+            if (map['left_sleeve_text_visible'] !== undefined) state.leftSleeve.text.visible = parseBool(map['left_sleeve_text_visible']);
+            if (map['left_sleeve_text_matter'] !== undefined) state.leftSleeve.text.text = map['left_sleeve_text_matter'];
+            if (map['left_sleeve_text_width'] !== undefined) state.leftSleeve.text.targetWidthInches = val(map['left_sleeve_text_width'], 12.0);
+            if (map['left_sleeve_text_height'] !== undefined) state.leftSleeve.text.maxHeightInches = val(map['left_sleeve_text_height'], 2.5);
+            if (map['left_sleeve_text_x'] !== undefined) state.leftSleeve.text.xPosInches = val(map['left_sleeve_text_x'], 11.75);
+            if (map['left_sleeve_text_y'] !== undefined) state.leftSleeve.text.yPosInches = val(map['left_sleeve_text_y'], 7.0);
+            if (map['left_sleeve_text_color'] !== undefined) state.leftSleeve.text.fgColor = map['left_sleeve_text_color'];
+            if (map['left_sleeve_text_outline'] !== undefined) state.leftSleeve.text.outlineColor = map['left_sleeve_text_outline'];
+            if (map['left_sleeve_text_outline_thickness'] !== undefined) state.leftSleeve.text.outlineThicknessInches = val(map['left_sleeve_text_outline_thickness'], 0.10);
+            if (map['left_sleeve_text_letter_spacing'] !== undefined) state.leftSleeve.text.letterSpacingInches = val(map['left_sleeve_text_letter_spacing'], 0.10);
+            if (map['left_sleeve_text_font'] !== undefined) state.leftSleeve.text.fontFamily = map['left_sleeve_text_font'];
+            if (map['left_sleeve_text_weight'] !== undefined) state.leftSleeve.text.fontWeight = parseInt(map['left_sleeve_text_weight']) || 100;
+
+            // SLEEVE RIGHT
+            if (map['right_sleeve_logo_visible'] !== undefined) state.rightSleeve.logo.visible = parseBool(map['right_sleeve_logo_visible']);
+            if (map['right_sleeve_logo_width'] !== undefined) state.rightSleeve.logo.targetWidthInches = val(map['right_sleeve_logo_width'], 3.0);
+            if (map['right_sleeve_logo_height'] !== undefined) state.rightSleeve.logo.maxHeightInches = val(map['right_sleeve_logo_height'], 3.0);
+            if (map['right_sleeve_logo_x'] !== undefined) state.rightSleeve.logo.xPosInches = val(map['right_sleeve_logo_x'], 11.75);
+            if (map['right_sleeve_logo_y'] !== undefined) state.rightSleeve.logo.yPosInches = val(map['right_sleeve_logo_y'], 5.5);
+
+            if (map['right_sleeve_text_visible'] !== undefined) state.rightSleeve.text.visible = parseBool(map['right_sleeve_text_visible']);
+            if (map['right_sleeve_text_matter'] !== undefined) state.rightSleeve.text.text = map['right_sleeve_text_matter'];
+            if (map['right_sleeve_text_width'] !== undefined) state.rightSleeve.text.targetWidthInches = val(map['right_sleeve_text_width'], 12.0);
+            if (map['right_sleeve_text_height'] !== undefined) state.rightSleeve.text.maxHeightInches = val(map['right_sleeve_text_height'], 2.5);
+            if (map['right_sleeve_text_x'] !== undefined) state.rightSleeve.text.xPosInches = val(map['right_sleeve_text_x'], 11.75);
+            if (map['right_sleeve_text_y'] !== undefined) state.rightSleeve.text.yPosInches = val(map['right_sleeve_text_y'], 7.0);
+            if (map['right_sleeve_text_color'] !== undefined) state.rightSleeve.text.fgColor = map['right_sleeve_text_color'];
+            if (map['right_sleeve_text_outline'] !== undefined) state.rightSleeve.text.outlineColor = map['right_sleeve_text_outline'];
+            if (map['right_sleeve_text_outline_thickness'] !== undefined) state.rightSleeve.text.outlineThicknessInches = val(map['right_sleeve_text_outline_thickness'], 0.10);
+            if (map['right_sleeve_text_letter_spacing'] !== undefined) state.rightSleeve.text.letterSpacingInches = val(map['right_sleeve_text_letter_spacing'], 0.10);
+            if (map['right_sleeve_text_font'] !== undefined) state.rightSleeve.text.fontFamily = map['right_sleeve_text_font'];
+            if (map['right_sleeve_text_weight'] !== undefined) state.rightSleeve.text.fontWeight = parseInt(map['right_sleeve_text_weight']) || 100;
+        }
+
+        function findZipFile(zip, filename) {
+            const low = filename.toLowerCase();
+            for (let k of Object.keys(zip.files)) {
+                if (zip.files[k].dir) continue;
+                const parts = k.split('/');
+                if (parts[parts.length - 1].toLowerCase() === low) return zip.files[k];
+            }
+            return null;
+        }
+
+        async function handleProjectZipUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            state.comment.text = file.name.replace(/\.[^/.]+$/, "").toUpperCase();
+            document.getElementById('commentTextInput').value = state.comment.text;
+
+            const loader = document.getElementById('canvasLoader');
+            loader.classList.remove('hidden');
+            document.getElementById('loaderText').innerText = "⚡ Extracting files from ZIP...";
+
+            try {
+                const ab = await file.arrayBuffer();
+                const zip = await window.JSZip.loadAsync(ab);
+                const r = [];
+
+                const confFile = findZipFile(zip, "config.txt");
+                if (confFile) {
+                    parseConfigTxt(await confFile.async("string"));
+                    r.push("<li><b>config.txt</b>: <span class='text-emerald-600'>Success</span></li>");
+                }
+
+                const csvFile = findZipFile(zip, "players.csv") || findZipFile(zip, "players.txt");
+                if (csvFile) {
+                    document.getElementById('playerListInput').value = await csvFile.async("string");
+                    parsePlayersFromListText();
+                    r.push("<li><b>players.csv</b>: <span class='text-emerald-600'>Success</span></li>");
+                }
+
+                const getBlobOrPDF = async (base) => {
+                    let f = findZipFile(zip, base + ".pdf");
+                    if (f) {
+                        const buffer = await f.async("arraybuffer");
+                        const blob = new Blob([buffer], { type: "application/pdf" });
+                        return { img: await renderPdfBufferToImage(buffer), blob, ext: "pdf" };
+                    }
+                    const exts = [".png", ".jpg", ".jpeg", ".svg"];
+                    for (let ext of exts) {
+                        f = findZipFile(zip, base + ext);
+                        if (f) {
+                            const blob = await f.async("blob");
+                            return {
+                                img: await new Promise(res => {
+                                    const img = new Image();
+                                    img.onload = () => res(img);
+                                    img.src = URL.createObjectURL(blob);
+                                }),
+                                blob,
+                                ext: ext.substring(1)
+                            };
+                        }
+                    }
+                    return null;
+                };
+
+                const fP = await getBlobOrPDF("front_palla");
+                if (fP) { state.uploadedFrontJersey = fP.img; state.frontJerseyBlob = fP.blob; state.frontJerseyExtension = fP.ext; r.push("<li><b>front_palla</b>: <span class='text-emerald-600'>Loaded</span></li>"); }
+
+                const bP = await getBlobOrPDF("back_palla");
+                if (bP) { state.uploadedBackJersey = bP.img; state.backJerseyBlob = bP.blob; state.backJerseyExtension = bP.ext; r.push("<li><b>back_palla</b>: <span class='text-emerald-600'>Loaded</span></li>"); }
+
+                const hS = await getBlobOrPDF("half_sleeve_palla") || await getBlobOrPDF("half_sleeve");
+                if (hS) { state.uploadedHalfSleeve = hS.img; state.halfSleeveBlob = hS.blob; state.halfSleeveExtension = hS.ext; r.push("<li><b>half_sleeve_palla</b>: <span class='text-emerald-600'>Loaded</span></li>"); }
+
+                const fS = await getBlobOrPDF("full_sleeve_palla") || await getBlobOrPDF("full_sleeve");
+                if (fS) { state.uploadedFullSleeve = fS.img; state.fullSleeveBlob = fS.blob; state.fullSleeveExtension = fS.ext; r.push("<li><b>full_sleeve_palla</b>: <span class='text-emerald-600'>Loaded</span></li>"); }
+
+                const loadAndExtractImg = async (filename, stateFieldBlob, stateFieldImg, elementId, stateFieldExt) => {
+                    const f = findZipFile(zip, filename);
+                    if (!f) return;
+                    const b = await f.async("blob");
+                    state[stateFieldBlob] = b;
+                    state[stateFieldExt] = filename.split('.').pop();
+                    const img = await new Promise(res => {
+                        const i = new Image(); i.onload = () => res(i); i.src = URL.createObjectURL(b);
+                    });
+                    state[stateFieldImg] = img;
+                    document.getElementById(elementId).innerText = `ZIP: ${filename}`;
+                    r.push(`<li><b>${filename}</b>: <span class='text-emerald-600'>Loaded</span></li>`);
+                };
+
+                await loadAndExtractImg("logo.png", "logoBlob", "uploadedLogoImage", "logoFileName", "logoExtension");
+                await loadAndExtractImg("right_logo.png", "rightLogoBlob", "uploadedRightLogoImage", "rightLogoFileName", "rightLogoExtension");
+                
+                await loadAndExtractImg("left_sleeve_logo.png", "leftSleeveLogoBlob", "uploadedLeftSleeveLogoImage", "leftSleeveLogoFileName", "leftSleeveLogoExtension");
+                await loadAndExtractImg("right_sleeve_logo.png", "rightSleeveLogoBlob", "uploadedRightSleeveLogoImage", "rightSleeveLogoFileName", "rightSleeveLogoExtension");
+
+                await loadAndExtractImg("front_sponsor_logo.png", "frontSponsorLogoBlob", "uploadedFrontSponsorLogoImage", "frontSponsorLogoFileName", "frontSponsorLogoExtension");
+                await loadAndExtractImg("back_logo.png", "backLogoBlob", "uploadedBackLogoImage", "backLogoFileName", "backLogoExtension");
+
+                syncControlsToState();
+                drawCanvas();
+                showNotification("ZIP Upload complete", `<ul class='text-left pl-3 list-disc'>${r.join("")}</ul>`, "success");
+            } catch (err) {
+                console.error(err);
+                showNotification("ZIP Import Error", "Check zip files compliance.", "error");
+            } finally {
+                loader.classList.add('hidden');
+            }
+        }
+
+        function buildConfigTxtStream() {
+            return `// -------------------------------------------------------------
+// JERSEY GRADED DESIGN ENGINE SHEET (config.txt)
+// -------------------------------------------------------------
+sleeves_enabled: ${state.sleevesEnabled !== false}
+auto_mirror_sleeves: ${state.autoMirrorSleeves !== false}
+mirror_sleeve_logo_image: ${state.mirrorSleeveLogoImage !== false}
+
+// FRONT ELEMENTS
+front_logo_visible: ${state.front.logo.visible !== false}
+front_logo_width: ${state.front.logo.targetWidthInches}
+front_logo_height: ${state.front.logo.maxHeightInches}
+front_logo_x: ${state.front.logo.xPosInches}
+front_logo_y: ${state.front.logo.yPosInches}
+
+front_logo_right_visible: ${state.front.logoRight.visible !== false}
+front_logo_right_width: ${state.front.logoRight.targetWidthInches}
+front_logo_right_height: ${state.front.logoRight.maxHeightInches}
+front_logo_right_x: ${state.front.logoRight.xPosInches}
+front_logo_right_y: ${state.front.logoRight.yPosInches}
+
+front_chestNumber_visible: ${state.front.chestNumber.visible !== false}
+front_chestNumber_text: ${state.front.chestNumber.text}
+front_chestNumber_width: ${state.front.chestNumber.targetWidthInches}
+front_chestNumber_height: ${state.front.chestNumber.maxHeightInches}
+front_chestNumber_x: ${state.front.chestNumber.xPosInches}
+front_chestNumber_y: ${state.front.chestNumber.yPosInches}
+front_chestNumber_color: ${state.front.chestNumber.fgColor}
+front_chestNumber_outline: ${state.front.chestNumber.outlineColor}
+front_chestNumber_outline_thickness: ${state.front.chestNumber.outlineThicknessInches}
+front_chestNumber_letter_spacing: ${state.front.chestNumber.letterSpacingInches}
+front_chestNumber_font: ${state.front.chestNumber.fontFamily || "Teko"}
+front_chestNumber_weight: ${state.front.chestNumber.fontWeight || 800}
+
+front_sponsor_visible: ${state.front.sponsor.visible !== false}
+front_sponsor_text: ${state.front.sponsor.text}
+front_sponsor_width: ${state.front.sponsor.targetWidthInches}
+front_sponsor_height: ${state.front.sponsor.maxHeightInches}
+front_sponsor_x: ${state.front.sponsor.xPosInches}
+front_sponsor_y: ${state.front.sponsor.yPosInches}
+front_sponsor_color: ${state.front.sponsor.fgColor}
+front_sponsor_outline: ${state.front.sponsor.outlineColor}
+front_sponsor_outline_thickness: ${state.front.sponsor.outlineThicknessInches}
+front_sponsor_letter_spacing: ${state.front.sponsor.letterSpacingInches}
+front_sponsor_curved: ${state.front.sponsor.curvedEnabled !== false}
+front_sponsor_arc: ${state.front.sponsor.arc}
+front_sponsor_font: ${state.front.sponsor.fontFamily || "Teko"}
+front_sponsor_weight: ${state.front.sponsor.fontWeight || 800}
+
+front_sponsorLogo_visible: ${state.front.sponsorLogo.visible !== false}
+front_sponsorLogo_width: ${state.front.sponsorLogo.targetWidthInches}
+front_sponsorLogo_height: ${state.front.sponsorLogo.maxHeightInches}
+front_sponsorLogo_x: ${state.front.sponsorLogo.xPosInches}
+front_sponsorLogo_y: ${state.front.sponsorLogo.yPosInches}
+
+// BACK ELEMENTS
+back_name_visible: ${state.back.name.visible !== false}
+back_name_text: ${state.back.name.text}
+back_name_width: ${state.back.name.targetWidthInches}
+back_name_height: ${state.back.name.maxHeightInches}
+back_name_x: ${state.back.name.xPosInches}
+back_name_y: ${state.back.name.yPosInches}
+back_name_color: ${state.back.name.fgColor}
+back_name_outline: ${state.back.name.outlineColor}
+back_name_outline_thickness: ${state.back.name.outlineThicknessInches}
+back_name_letter_spacing: ${state.back.name.letterSpacingInches}
+back_name_curved: ${state.back.name.curvedEnabled !== false}
+back_name_arc: ${state.back.name.arc}
+back_name_font: ${state.back.name.fontFamily || "Teko"}
+back_name_weight: ${state.back.name.fontWeight || 800}
+
+back_number_visible: ${state.back.number.visible !== false}
+back_number_text: ${state.back.number.text}
+back_number_width: ${state.back.number.targetWidthInches}
+back_number_height: ${state.back.number.maxHeightInches}
+back_number_x: ${state.back.number.xPosInches}
+back_number_y: ${state.back.number.yPosInches}
+back_number_color: ${state.back.number.fgColor}
+back_number_outline: ${state.back.number.outlineColor}
+back_number_outline_thickness: ${state.back.number.outlineThicknessInches}
+back_number_letter_spacing: ${state.back.number.letterSpacingInches}
+back_number_font: ${state.back.number.fontFamily || "Teko"}
+back_number_weight: ${state.back.number.fontWeight || 900}
+
+back_logo_visible: ${state.back.logo.visible !== false}
+back_logo_width: ${state.back.logo.targetWidthInches}
+back_logo_height: ${state.back.logo.maxHeightInches}
+back_logo_x: ${state.back.logo.xPosInches}
+back_logo_y: ${state.back.logo.yPosInches}
+
+back_teamName_visible: ${state.back.teamName.visible !== false}
+back_teamName_text: ${state.back.teamName.text}
+back_teamName_width: ${state.back.teamName.targetWidthInches}
+back_teamName_height: ${state.back.teamName.maxHeightInches}
+back_teamName_x: ${state.back.teamName.xPosInches}
+back_teamName_y: ${state.back.teamName.yPosInches}
+back_teamName_color: ${state.back.teamName.fgColor}
+back_teamName_outline: ${state.back.teamName.outlineColor}
+back_teamName_outline_thickness: ${state.back.teamName.outlineThicknessInches}
+back_teamName_letter_spacing: ${state.back.teamName.letterSpacingInches}
+back_teamName_curved: ${state.back.teamName.curvedEnabled !== false}
+back_teamName_arc: ${state.back.teamName.arc}
+back_teamName_font: ${state.back.teamName.fontFamily || "Teko"}
+back_teamName_weight: ${state.back.teamName.fontWeight || 800}
+
+// SLEEVE LEFT
+left_sleeve_logo_visible: ${state.leftSleeve.logo.visible !== false}
+left_sleeve_logo_width: ${state.leftSleeve.logo.targetWidthInches}
+left_sleeve_logo_height: ${state.leftSleeve.logo.maxHeightInches}
+left_sleeve_logo_x: ${state.leftSleeve.logo.xPosInches}
+left_sleeve_logo_y: ${state.leftSleeve.logo.yPosInches}
+
+left_sleeve_text_visible: ${state.leftSleeve.text.visible !== false}
+left_sleeve_text_matter: ${state.leftSleeve.text.text}
+left_sleeve_text_width: ${state.leftSleeve.text.targetWidthInches}
+left_sleeve_text_height: ${state.leftSleeve.text.maxHeightInches}
+left_sleeve_text_x: ${state.leftSleeve.text.xPosInches}
+left_sleeve_text_y: ${state.leftSleeve.text.yPosInches}
+left_sleeve_text_color: ${state.leftSleeve.text.fgColor}
+left_sleeve_text_outline: ${state.leftSleeve.text.outlineColor}
+left_sleeve_text_outline_thickness: ${state.leftSleeve.text.outlineThicknessInches}
+left_sleeve_text_letter_spacing: ${state.leftSleeve.text.letterSpacingInches}
+left_sleeve_text_font: ${state.leftSleeve.text.fontFamily || "Teko"}
+left_sleeve_text_weight: ${state.leftSleeve.text.fontWeight || 800}
+
+// SLEEVE RIGHT
+right_sleeve_logo_visible: ${state.rightSleeve.logo.visible !== false}
+right_sleeve_logo_width: ${state.rightSleeve.logo.targetWidthInches}
+right_sleeve_logo_height: ${state.rightSleeve.logo.maxHeightInches}
+right_sleeve_logo_x: ${state.rightSleeve.logo.xPosInches}
+right_sleeve_logo_y: ${state.rightSleeve.logo.yPosInches}
+
+right_sleeve_text_visible: ${state.rightSleeve.text.visible !== false}
+right_sleeve_text_matter: ${state.rightSleeve.text.text}
+right_sleeve_text_width: ${state.rightSleeve.text.targetWidthInches}
+right_sleeve_text_height: ${state.rightSleeve.text.maxHeightInches}
+right_sleeve_text_x: ${state.rightSleeve.text.xPosInches}
+right_sleeve_text_y: ${state.rightSleeve.text.yPosInches}
+right_sleeve_text_color: ${state.rightSleeve.text.fgColor}
+right_sleeve_text_outline: ${state.rightSleeve.text.outlineColor}
+right_sleeve_text_outline_thickness: ${state.rightSleeve.text.outlineThicknessInches}
+right_sleeve_text_letter_spacing: ${state.rightSleeve.text.letterSpacingInches}
+right_sleeve_text_font: ${state.rightSleeve.text.fontFamily || "Teko"}
+right_sleeve_text_weight: ${state.rightSleeve.text.fontWeight || 800}
+`;
+        }
+
+        async function exportCurrentProjectZip() {
+            const zip = new JSZip();
+            zip.file("config.txt", buildConfigTxtStream());
+
+            let csv = "";
+            state.players.forEach(p => csv += `${p.name}, ${p.number}, ${p.size}, ${p.sleeve}\n`);
+            zip.file("players.csv", csv.trim());
+
+            const addBlob = (fName, blob) => { if (blob) zip.file(fName, blob); };
+            addBlob(`front_palla.${state.frontJerseyExtension || "svg"}`, state.frontJerseyBlob);
+            addBlob(`back_palla.${state.backJerseyExtension || "svg"}`, state.backJerseyBlob);
+            addBlob(`half_sleeve_palla.${state.halfSleeveExtension || "svg"}`, state.halfSleeveBlob);
+            addBlob(`full_sleeve_palla.${state.fullSleeveExtension || "svg"}`, state.fullSleeveBlob);
+
+            addBlob(`logo.${state.logoExtension || "png"}`, state.logoBlob);
+            addBlob(`right_logo.${state.rightLogoExtension || "png"}`, state.rightLogoBlob);
+            
+            addBlob(`left_sleeve_logo.${state.leftSleeveLogoExtension || "png"}`, state.leftSleeveLogoBlob);
+            addBlob(`right_sleeve_logo.${state.rightSleeveLogoExtension || "png"}`, state.rightSleeveLogoBlob);
+            
+            addBlob(`front_sponsor_logo.${state.frontSponsorLogoExtension || "png"}`, state.frontSponsorLogoBlob);
+            addBlob(`back_logo.${state.backLogoExtension || "png"}`, state.backLogoBlob);
+
+            try {
+                const b = await zip.generateAsync({type:"blob"});
+                const dl = document.createElement('a');
+                dl.href = URL.createObjectURL(b);
+                dl.download = `${state.comment.text}_PROJECT_BACKUP.zip`;
+                dl.click();
+                showNotification("Project ZIP Exported", "Project layout details saved inside backup package.", "success");
+            } catch (err) {
+                console.error(err);
+                showNotification("Export Error", "Could not export project configuration.", "error");
+            }
+        }
+
+        async function downloadSampleAutomationZip() {
+            const zip = new JSZip();
+            const { jsPDF } = window.jspdf;
+
+            zip.file("config.txt", `// SAMPLE SLEEVES AUTO LAYOUT CONFIG
+sleeves_enabled: true
+auto_mirror_sleeves: true
+mirror_sleeve_logo_image: false
+
+left_sleeve_logo_visible: true
+left_sleeve_logo_width: 3.0
+left_sleeve_logo_height: 3.0
+left_sleeve_logo_x: 11.75
+left_sleeve_logo_y: 5.5
+
+left_sleeve_text_visible: false
+`);
+            zip.file("players.csv", "ROHIT, 45, M, HALF\nVIRAT, 18, L, FULL\nMSD, 7, XL, HALF");
+
+            const lC = document.createElement('canvas'); lC.width = 64; lC.height = 64;
+            const lCtx = lC.getContext('2d'); lCtx.fillStyle = '#1e40af'; lCtx.fillRect(16, 16, 32, 32);
+            zip.file("logo.png", lC.toDataURL('image/png').split(',')[1], {base64: true});
+            zip.file("right_logo.png", lC.toDataURL('image/png').split(',')[1], {base64: true});
+            zip.file("left_sleeve_logo.png", lC.toDataURL('image/png').split(',')[1], {base64: true});
+            zip.file("right_sleeve_logo.png", lC.toDataURL('image/png').split(',')[1], {base64: true});
+
+            const renderVectorPdf = (bgColorHex, outlineColorHex, w, h, label) => {
+                const orientation = w > h ? 'landscape' : 'portrait';
+                const format = w > h ? [h, w] : [w, h];
+                const doc = new jsPDF({ orientation: orientation, unit: 'in', format: format });
+                doc.setFillColor(bgColorHex); doc.rect(0, 0, w, h, 'F');
+                doc.setTextColor(255, 255, 255); doc.setFontSize(20);
+                doc.text(label, w / 2, h / 2, { align: 'center' });
+                return doc.output('arraybuffer');
+            };
+
+            zip.file("front_palla.pdf", renderVectorPdf("#1e3a8a", "#facc15", 21, 30, "FRONT PALLA"));
+            zip.file("back_palla.pdf", renderVectorPdf("#1e40af", "#facc15", 21, 30, "BACK PALLA"));
+            zip.file("half_sleeve_palla.pdf", renderVectorPdf("#1e3a8a", "#facc15", 23.5, 10, "HALF SLEEVE"));
+            zip.file("full_sleeve_palla.pdf", renderVectorPdf("#1e40af", "#facc15", 23.5, 28, "FULL SLEEVE"));
+
+            const c = await zip.generateAsync({type:"blob"});
+            const dl = document.createElement('a');
+            dl.href = URL.createObjectURL(c);
+            dl.download = "SAMPLE_SLEEVES_PROJECT.zip";
+            dl.click();
+        }
+
+        async function generateBatchJerseys() {
+            if (state.players.length === 0) return;
+
+            const generateBtn = document.getElementById('generateBtn');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            const progressStatusText = document.getElementById('progressStatusText');
+
+            generateBtn.disabled = true;
+            progressContainer.classList.remove('hidden');
+
+            const zip = new JSZip();
+            const { jsPDF } = window.jspdf;
+
+            const rCanvasF = document.createElement('canvas'); const rCtxF = rCanvasF.getContext('2d');
+            const rCanvasB = document.createElement('canvas'); const rCtxB = rCanvasB.getContext('2d');
+            const rCanvasLS = document.createElement('canvas'); const rCtxLS = rCanvasLS.getContext('2d');
+            const rCanvasRS = document.createElement('canvas'); const rCtxRS = rCanvasRS.getContext('2d');
+
+            const total = state.players.length;
+            for (let i = 0; i < total; i++) {
+                const p = state.players[i];
+                const cleanName = p.name.replace(/[^a-zA-Z0-9 ]/g, "").trim();
+                const cleanNum = p.number.replace(/[^0-9]/g, "").trim();
+                const size = normalizeSize(p.size);
+                const sleeve = p.sleeve || "HALF";
+
+                const sizeSpec = SIZE_DB[size] || SIZE_DB["M"];
+                const scaleX = sizeSpec.w / MASTER_REF_WIDTH;
+                const scaleY = sizeSpec.h / MASTER_REF_HEIGHT;
+
+                const exportDpi = 150; 
+                
+                rCanvasF.width = Math.round(sizeSpec.w * exportDpi);
+                rCanvasF.height = Math.round(sizeSpec.h * exportDpi);
+                rCanvasB.width = Math.round(sizeSpec.w * exportDpi);
+                rCanvasB.height = Math.round(sizeSpec.h * exportDpi);
+
+                const sleeveWInches = SLEEVE_REF_WIDTH * scaleX;
+                const sleeveHInches = (sleeve === 'HALF' ? SLEEVE_HALF_REF_HEIGHT : SLEEVE_FULL_REF_HEIGHT) * scaleY;
+                rCanvasLS.width = Math.round(sleeveWInches * exportDpi);
+                rCanvasLS.height = Math.round(sleeveHInches * exportDpi);
+                rCanvasRS.width = Math.round(sleeveWInches * exportDpi);
+                rCanvasRS.height = Math.round(sleeveHInches * exportDpi);
+
+                const percent = Math.round((i / total) * 100);
+                progressBar.style.width = `${percent}%`;
+                progressText.innerText = `${percent}%`;
+                progressStatusText.innerText = `Rendering Complete Kit ${i+1}/${total}: ${cleanName} (${sleeve})`;
+
+                await new Promise(r => setTimeout(r, 100));
+
+                drawCanvas(cleanName, cleanNum, size, rCtxF, rCtxB, exportDpi, rCtxLS, rCtxRS, sleeve);
+
+                // BYPASS dimensions rotation to dodge jsPDF landscape auto-crop bug
+                const createPdfStream = (canvas, w, h) => {
+                    const orientation = w > h ? 'landscape' : 'portrait';
+                    const format = w > h ? [h, w] : [w, h];
+                    const d = new jsPDF({ orientation: orientation, unit: 'in', format: format, compress: true });
+                    d.addImage(canvas.toDataURL('image/png', 0.85), 'PNG', 0, 0, w, h, undefined, 'FAST');
+                    return d.output('arraybuffer');
+                };
+
+                const baseName = `${size}_${cleanNum}_${cleanName}`;
+                zip.file(`All_Jerseys/${baseName}_FRONT.pdf`, createPdfStream(rCanvasF, sizeSpec.w, sizeSpec.h));
+                zip.file(`All_Jerseys/${baseName}_BACK.pdf`, createPdfStream(rCanvasB, sizeSpec.w, sizeSpec.h));
+                
+                if (state.sleevesEnabled) {
+                    zip.file(`All_Jerseys/${baseName}_SLEEVE_LEFT_${sleeve}.pdf`, createPdfStream(rCanvasLS, sleeveWInches, sleeveHInches));
+                    zip.file(`All_Jerseys/${baseName}_SLEEVE_RIGHT_${sleeve}.pdf`, createPdfStream(rCanvasRS, sleeveWInches, sleeveHInches));
+                }
+            }
+
+            progressBar.style.width = "100%";
+            progressText.innerText = "100%";
+            progressStatusText.innerText = "Zipping graded components...";
+            await new Promise(r => setTimeout(r, 500));
+
+            try {
+                const content = await zip.generateAsync({ type: "blob", compression: "DEFLATE", compressionOptions: { level: 5 } });
+                const dl = document.createElement('a');
+                dl.href = URL.createObjectURL(content);
+                dl.download = `${state.comment.text}_Graded_Production_Batch.zip`;
+                dl.click();
+            } catch (err) {
+                console.error(err);
+                showNotification("Production Export Error", "Failed to compile ZIP batch.", "error");
+            }
+
+            generateBtn.disabled = false;
+            progressContainer.classList.add('hidden');
+        }
+
+        // Roster functions
+        function parsePlayersFromListText() {
+            const txt = document.getElementById('playerListInput').value;
+            const lines = txt.split('\n');
+            const list = [];
+            lines.forEach(l => {
+                if (l.trim() === "") return;
+                const cols = l.split(/[,\t;]+/);
+                if (cols.length >= 2) {
+                    const pName = cols[0].trim();
+                    const pNum = cols[1].trim();
+                    const pSize = cols[2] ? normalizeSize(cols[2]) : "M";
+                    let sleeve = "HALF";
+                    if (cols[3]) {
+                        const sRaw = cols[3].trim().toUpperCase();
+                        if (sRaw === "FULL" || sRaw === "F" || sRaw === "FULL SLEEVES") sleeve = "FULL";
+                    }
+                    list.push({ name: pName, number: pNum, size: pSize, sleeve });
+                }
+            });
+            state.players = list;
+            document.getElementById('playerCount').innerText = `${state.players.length} Players`;
+            renderTable();
+            
+            // Auto update active preview with first roster player
+            if(state.players.length > 0 && state.activePlayerIndex >= state.players.length) {
+                setActivePlayerPreview(0);
+            }
+        }
+
+        function handleCSVUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const r = new FileReader();
+            r.onload = function(e) {
+                document.getElementById('playerListInput').value = e.target.result;
+                parsePlayersFromListText();
+            };
+            r.readAsText(file);
+        }
+
+        function normalizeSize(sizeStr) {
+            if (!sizeStr) return "M";
+            let s = sizeStr.trim().toUpperCase();
+            if (s === "MEDIUM" || s === "MED") return "M";
+            if (s === "LARGE" || s === "LRG") return "L";
+            if (s === "SMALL" || s === "SML") return "S";
+            if (s === "EXTRA LARGE" || s === "XLARGE") return "XL";
+            if (s === "2XL" || s === "XXLARGE") return "XXL";
+            if (s === "3XL" || s === "XXXLARGE") return "3XL";
+            if (s === "4XL") return "4XL";
+            if (s === "5XL") return "5XL";
+            return s;
+        }
+
+        function insertSampleData() {
+            document.getElementById('playerListInput').value = "ROHIT, 45, M, HALF\nVIRAT, 18, L, FULL\nMSD, 7, XL, HALF\nBUMRAH, 93, XXL, FULL";
+            parsePlayersFromListText();
+            setActivePlayerPreview(0);
+        }
+
+        // Dynamic individual preview sync
+        function setActivePlayerPreview(idx) {
+            if (idx < 0 || idx >= state.players.length) return;
+            state.activePlayerIndex = idx;
+            const player = state.players[idx];
+            
+            // Sync states
+            state.previewSize = normalizeSize(player.size);
+            state.activeSleeveType = player.sleeve || "HALF";
+            
+            state.back.name.text = player.name.toUpperCase();
+            state.back.number.text = player.number;
+            state.front.chestNumber.text = player.number;
+
+            document.getElementById('previewSizeSelect').value = state.previewSize;
+            
+            syncControlsToState();
+            drawCanvas();
+            renderTable();
+            showNotification("Preview Loaded", `Active layout synced to player: ${player.name} (${player.size})`);
+        }
+
+        function renderTable() {
+            const body = document.getElementById('playerTableBody');
+            body.innerHTML = "";
+            state.players.forEach((p, idx) => {
+                const isSelected = (idx === state.activePlayerIndex);
+                const tr = document.createElement('tr');
+                tr.className = `border-b border-slate-200 cursor-pointer transition-colors ${isSelected ? 'bg-blue-50/70 border-l-4 border-l-blue-600' : 'hover:bg-slate-50'}`;
+                tr.onclick = () => setActivePlayerPreview(idx);
+                tr.innerHTML = `
+                    <td class="p-2 font-black ${isSelected ? 'text-blue-900' : 'text-slate-800'}">${isSelected ? '▶ ' : ''}${p.name}</td>
+                    <td class="p-2 text-center font-bold text-blue-600">${p.number}</td>
+                    <td class="p-2 text-center"><span class="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded text-[10px] border border-blue-200">${p.size}</span></td>
+                    <td class="p-2 text-center font-semibold text-slate-505">${p.sleeve}</td>
+                    <td class="p-2 text-right flex items-center justify-end gap-1" onclick="event.stopPropagation();">
+                        <button onclick="setActivePlayerPreview(${idx})" class="p-1 text-slate-400 hover:text-blue-600 transition-colors" title="Preview Athlete"><i class="fa-solid fa-eye ${isSelected ? 'text-blue-600' : ''}"></i></button>
+                        <button onclick="removePlayer(${idx})" class="text-rose-500 hover:text-rose-700 p-1 transition-colors"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                `;
+                body.appendChild(tr);
+            });
+        }
+
+        function removePlayer(idx) {
+            state.players.splice(idx, 1);
+            if (state.activePlayerIndex >= state.players.length && state.players.length > 0) {
+                state.activePlayerIndex = state.players.length - 1;
+            }
+            document.getElementById('playerCount').innerText = `${state.players.length} Players`;
+            renderTable();
+            if (state.players.length > 0) {
+                setActivePlayerPreview(state.activePlayerIndex);
+            } else {
+                drawCanvas();
+            }
+        }
+
+        function resetToDefaults() {
+            state.previewSize = 'M';
+            state.dpi = 100;
+            state.sleevesEnabled = true;
+            state.autoMirrorSleeves = true;
+            state.mirrorSleeveLogoImage = false;
+
+            document.getElementById('sleevesEnabledToggle').checked = true;
+            document.getElementById('autoMirrorSleeves').checked = true;
+            document.getElementById('mirrorSleeveLogoImage').checked = false;
+            document.getElementById('previewSizeSelect').value = 'M';
+            document.getElementById('dpiSelect').value = '100';
+
+            state.front.logo = { targetWidthInches: 3.2, maxHeightInches: 3.2, xPosInches: 6.5, yPosInches: 8.5, visible: true };
+            state.front.logoRight = { targetWidthInches: 3.2, maxHeightInches: 3.2, xPosInches: 14.5, yPosInches: 8.5, visible: false };
+            state.front.chestNumber = { text: "45", targetWidthInches: 3.2, maxHeightInches: 3.2, xPosInches: 14.5, yPosInches: 7.5, fgColor: "#ffffff", outlineColor: "#000000", outlineThicknessInches: 0.10, letterSpacingInches: 0.05, fontFamily: "Teko", fontWeight: 100, visible: true };
+            state.front.sponsor = { text: "TEAM SPONSOR", targetWidthInches: 13.0, maxHeightInches: 3.5, xPosInches: 10.5, yPosInches: 15.0, fgColor: "#facc15", outlineColor: "#1e3a8a", outlineThicknessInches: 0.12, letterSpacingInches: 0.15, curvedEnabled: false, arc: 25, fontFamily: "Teko", fontWeight: 100, visible: true };
+            state.front.sponsorLogo = { targetWidthInches: 11.0, maxHeightInches: 4.5, xPosInches: 10.5, yPosInches: 19.5, visible: false };
+
+            state.back.name = { text: "ROHIT", targetWidthInches: 10.0, maxHeightInches: 3.5, xPosInches: 10.5, yPosInches: 6.0, fgColor: "#facc15", outlineColor: "#000000", outlineThicknessInches: 0.12, letterSpacingInches: 0.15, curvedEnabled: true, arc: 25, fontFamily: "Teko", fontWeight: 100, visible: true };
+            state.back.number = { text: "45", targetWidthInches: 9.0, maxHeightInches: 8.5, xPosInches: 10.5, yPosInches: 15.0, fgColor: "#ffffff", outlineColor: "#1e3a8a", outlineThicknessInches: 0.18, letterSpacingInches: 0.05, fontFamily: "Teko", fontWeight: 100, visible: true };
+            state.back.logo = { targetWidthInches: 6.0, maxHeightInches: 6.0, xPosInches: 10.5, yPosInches: 22.0, visible: false };
+            state.back.teamName = { text: "TEAM NAME", targetWidthInches: 12.0, maxHeightInches: 2.0, xPosInches: 10.5, yPosInches: 26.0, fgColor: "#facc15", outlineColor: "#1e3a8a", outlineThicknessInches: 0.10, letterSpacingInches: 0.12, curvedEnabled: false, arc: 25, fontFamily: "Teko", fontWeight: 100, visible: true };
+
+            state.leftSleeve.logo = { targetWidthInches: 3.0, maxHeightInches: 3.0, xPosInches: 11.75, yPosInches: 5.5, visible: true };
+            state.leftSleeve.text = { text: "RUN FAST", targetWidthInches: 12.0, maxHeightInches: 2.5, xPosInches: 11.75, yPosInches: 7.0, fgColor: "#ffffff", outlineColor: "#1e3a8a", outlineThicknessInches: 0.10, letterSpacingInches: 0.10, curvedEnabled: false, arc: 25, fontFamily: "Teko", fontWeight: 100, visible: false };
+
+            state.rightSleeve.logo = { targetWidthInches: 3.0, maxHeightInches: 3.0, xPosInches: 11.75, yPosInches: 5.5, visible: true };
+            state.rightSleeve.text = { text: "CHAMPIONS", targetWidthInches: 12.0, maxHeightInches: 2.5, xPosInches: 11.75, yPosInches: 7.0, fgColor: "#ffffff", outlineColor: "#1e3a8a", outlineThicknessInches: 0.10, letterSpacingInches: 0.10, curvedEnabled: false, arc: 25, fontFamily: "Teko", fontWeight: 100, visible: false };
+
+            state.comment = { text: "BATCH-S", visible: true, fontSizeInches: 0.2, yPosInches: 0.0, fgColor: "#ffffff", outlineColor: "#000000", outlineThicknessInches: 0.04 };
+
+            loadDefaultVectorTemplates();
+            switchMasterSide('front');
+            showNotification("Config Reset", "Restored athletic standard coordinates!", "info");
+        }
+
+        function toggleFrontComponent(elKey) {
+            const comp = state.front[elKey];
+            if (comp) {
+                comp.visible = !comp.visible;
+                const btnId = elKey === 'logo' ? 'toggleFrontLogoBtn' : elKey === 'logoRight' ? 'toggleFrontLogoRightBtn' : 'toggleFrontNumBtn';
+                const label = elKey === 'logo' ? 'L-Logo' : elKey === 'logoRight' ? 'R-Logo' : 'Num';
+                const btn = document.getElementById(btnId);
+                if (comp.visible) {
+                    btn.className = "py-1.5 px-1 text-[9px] font-bold rounded bg-blue-600 text-white border border-blue-500 transition-all flex items-center justify-center gap-0.5 shadow-sm";
+                    btn.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${label}: ON`;
+                } else {
+                    btn.className = "py-1.5 px-1 text-[9px] font-bold rounded bg-white text-slate-505 border border-slate-300 transition-all flex items-center justify-center gap-0.5";
+                    btn.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> ${label}: OFF`;
+                }
+                drawCanvas();
+            }
+        }
+
+        function applyChestPreset(preset) {
+            if (preset === 'logo_dual') {
+                state.front.logo.visible = true;
+                state.front.logo.xPosInches = 6.5;
+                state.front.logoRight.visible = true;
+                state.front.logoRight.xPosInches = 14.5;
+                state.front.chestNumber.visible = false;
+            } else if (preset === 'dual') {
+                state.front.logo.visible = true;
+                state.front.logo.xPosInches = 6.5;
+                state.front.logoRight.visible = false;
+                state.front.chestNumber.visible = true;
+                state.front.chestNumber.xPosInches = 14.5;
+            } else if (preset === 'logo_center') {
+                state.front.logo.visible = true;
+                state.front.logo.xPosInches = 10.5;
+                state.front.logoRight.visible = false;
+                state.front.chestNumber.visible = false;
+            }
+            
+            const syncBtn = (elKey, btnId, label) => {
+                const comp = state.front[elKey];
+                const btn = document.getElementById(btnId);
+                if (comp.visible) {
+                    btn.className = "py-1.5 px-1 text-[9px] font-bold rounded bg-blue-600 text-white border border-blue-500 transition-all flex items-center justify-center gap-0.5 shadow-sm";
+                    btn.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${label}: ON`;
+                } else {
+                    btn.className = "py-1.5 px-1 text-[9px] font-bold rounded bg-white text-slate-505 border border-slate-300 transition-all flex items-center justify-center gap-0.5";
+                    btn.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> ${label}: OFF`;
+                }
+            };
+            syncBtn('logo', 'toggleFrontLogoBtn', 'L-Logo');
+            syncBtn('logoRight', 'toggleFrontLogoRightBtn', 'R-Logo');
+            syncBtn('chestNumber', 'toggleFrontNumBtn', 'Num');
+
+            syncControlsToState();
+            drawCanvas();
+            showNotification("Preset Applied", "Repositioned chest logos and numbers.", "success");
+        }
+
+        window.onload = function() {
+            loadDefaultVectorTemplates();
+            switchMasterSide('front');
+            setupDragHandlers();
+            renderTable();
+            
+            setTimeout(() => {
+                drawCanvas();
+            }, 300);
+        };
+    <script>
+        // ─────────────────────────────────────────────────────────────────
+        // URL PARAM PRE-LOADER — reads params passed from the React Native
+        // app when the designer is opened via CustomizerScreen iframe/WebView.
+        // Params: primaryColor, secondaryColor, pattern, font, name, number
+        // ─────────────────────────────────────────────────────────────────
+        (function applyUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            const fg  = params.get('primaryColor');
+            const bg  = params.get('secondaryColor');
+            const playerName = params.get('name');
+            const playerNum  = params.get('number');
+            const font = params.get('font');
+
+            // Wait until the state object is available (after main script runs)
+            function tryApply() {
+                if (typeof state === 'undefined') {
+                    setTimeout(tryApply, 100);
+                    return;
+                }
+
+                if (fg) {
+                    state.front.chestNumber.fgColor  = fg;
+                    state.front.sponsor.fgColor       = fg;
+                    state.back.name.fgColor           = fg;
+                    state.back.number.fgColor         = fg;
+                    state.back.teamName.fgColor       = fg;
+                    state.leftSleeve.text.fgColor     = fg;
+                    state.rightSleeve.text.fgColor    = fg;
+                }
+                if (bg) {
+                    state.front.chestNumber.outlineColor = bg;
+                    state.front.sponsor.outlineColor     = bg;
+                    state.back.name.outlineColor          = bg;
+                    state.back.number.outlineColor        = bg;
+                    state.back.teamName.outlineColor      = bg;
+                    state.leftSleeve.text.outlineColor    = bg;
+                    state.rightSleeve.text.outlineColor   = bg;
+                }
+                if (playerName) {
+                    state.back.name.text = playerName.toUpperCase();
+                    if (state.players && state.players.length > 0) {
+                        state.players[0].name = playerName.toUpperCase();
+                    }
+                }
+                if (playerNum) {
+                    state.front.chestNumber.text = playerNum;
+                    state.back.number.text = playerNum;
+                    if (state.players && state.players.length > 0) {
+                        state.players[0].number = playerNum;
+                    }
+                }
+                if (font && font !== 'Oswald') {
+                    state.fontFamily = font;
+                    state.front.chestNumber.fontFamily = font;
+                    state.front.sponsor.fontFamily     = font;
+                    state.back.name.fontFamily         = font;
+                    state.back.number.fontFamily       = font;
+                    state.back.teamName.fontFamily     = font;
+                }
+
+                // Re-draw with updated values
+                if (typeof drawCanvas === 'function') drawCanvas();
+                if (typeof syncControlsToState === 'function') syncControlsToState();
+                if (typeof renderTable === 'function') renderTable();
+
+                if (fg || bg || playerName || playerNum) {
+                    if (typeof showNotification === 'function') {
+                        showNotification(
+                            "Template Loaded",
+                            "Colours and player data pre-loaded from selected template.",
+                            "success"
+                        );
+                    }
+                }
+            }
+
+            // Run after window.onload has finished
+            window.addEventListener('load', function() {
+                setTimeout(tryApply, 400);
+            });
+        })();
+    </script>
+</body>
+</html>
