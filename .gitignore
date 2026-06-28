@@ -1,0 +1,21 @@
+# Dependency directories
+node_modules/
+
+# Expo directories and builds
+.expo/
+dist/
+web-build/
+
+# SQLite databases and debug logs
+*.log
+db.sqlite
+db.sqlite-journal
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE configurations
+.idea/
+.vscode/
+.expo-shared/

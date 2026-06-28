@@ -1,0 +1,30 @@
+{
+  "name": "jersey-customizer-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "build:web": "expo export",
+    "local-test:web": "npx serve dist"
+  },
+  "dependencies": {
+    "@expo/metro-runtime": "~3.2.3",
+    "axios": "^1.7.2",
+    "expo": "~51.0.0",
+    "expo-font": "~12.0.5",
+    "expo-status-bar": "~1.12.1",
+    "jspdf": "^2.5.1",
+    "jszip": "^3.10.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.74.1",
+    "react-native-web": "~0.19.10",
+    "react-native-webview": "13.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}
