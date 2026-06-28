@@ -12,7 +12,7 @@ if (Platform.OS === 'android') {
 
 // Fallback to Render production URL when built/hosted
 if (process.env.NODE_ENV === 'production') {
-  BASE_URL = 'https://jersey-customizer-backend.onrender.com/api';
+  BASE_URL = 'https://jersey-customizer-backend-8ipc.onrender.com/api';
 }
 
 const api = axios.create({
