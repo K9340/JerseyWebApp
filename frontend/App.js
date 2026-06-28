@@ -21,9 +21,9 @@ export default function App() {
 
   // Configure OAuth request parameters
   const [request, response, promptAsync] = Google.useAuthRequest({
-    webClientId: '10928340912-3ab8cd25.apps.googleusercontent.com', // Placeholder
-    androidClientId: '10928340912-androidplaceholder.apps.googleusercontent.com',
-    iosClientId: '10928340912-iosplaceholder.apps.googleusercontent.com',
+    webClientId: process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID,
+    androidClientId: process.env.EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID,
+    iosClientId: process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,
   });
 
   // Watch authentication response

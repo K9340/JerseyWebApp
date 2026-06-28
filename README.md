@@ -31,6 +31,24 @@ jersey-customizer-app/
 
 ---
 
+## ⚙️ Environment Configuration
+
+The application reads database links and Google Client IDs from environment variables. Set them up before running local servers:
+
+1. **Backend Setup:**
+   * Navigate to `backend/`, copy the template, and configure your keys (e.g. custom database path, JWT secrets):
+     ```bash
+     cp .env.example .env
+     ```
+
+2. **Frontend Setup:**
+   * Navigate to `frontend/`, copy the template, and insert your Google Client IDs:
+     ```bash
+     cp .env.example .env
+     ```
+
+---
+
 ## 💻 Local Quickstart
 
 ### Prerequisites
